@@ -25,4 +25,3 @@ What to do:
 Bugs:
 
 -  inputs in add recipe window stays filled when window closed
--  add ingredients to list count wrongly
