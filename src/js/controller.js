@@ -114,9 +114,10 @@ const controlBookmarks = () => {
 //////////////////////////////////////////////////////////////////////
 //^ ING LIST CONTROLLER
 const controlAddIngsToList = () => {
-   model.addIngsTolist();
+   model.addIngsToList();
    ingListView.render(model.state.list);
    // alertView.render("ingAdded");
+   console.log(model.state.recipe);
 };
 
 const controlRemoveIngFromList = (i) => {

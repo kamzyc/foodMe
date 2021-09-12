@@ -133,40 +133,30 @@ const clearIngList = () => {
    localStorage.clear("list");
 };
 
-export const addIngsTolist = () => {
-   if (state.list.length === 0) {
-      console.log(`LIST IS EMPTY`);
-      state.recipe.ingredients.forEach((ing) => state.list.push(ing));
-   } else {
-      state.recipe.ingredients.forEach((newIng) => {
-         console.log("*******************************");
-         console.log(
-            `NEW ING - ${newIng.quantity} ${newIng.unit} ${newIng.description}`
-         );
+export const addIngsToList = () => {
+   let copy = {};
+   let onList = false;
 
-         state.list.forEach((listIng) => {
-            console.log(
-               `LIST ING - ${listIng.quantity} ${listIng.unit} ${
-                  listIng.description
-               } -- ${
-                  newIng.unit === listIng.unit &&
-                  newIng.description === listIng.description
-               }`
-            );
+   state.recipe.ingredients.forEach((ing) => {
+      copy = Object.assign({}, ing);
 
-            // Adding
+      if (state.list.length === 0) {
+         state.list.push(copy);
+      } else {
+         onList = false;
+         state.list.forEach((ingOnList) => {
             if (
-               newIng.unit === listIng.unit &&
-               newIng.description === listIng.description
+               ing.unit === ingOnList.unit &&
+               ing.description === ingOnList.description
             ) {
-               console.log(`UPDATE`);
-               listIng.quantity += newIng.quantity;
+               ingOnList.quantity += copy.quantity;
+               onList = true;
             }
-
-            console.log("---------------------------");
          });
-      });
-   }
+
+         !onList && state.list.push(copy);
+      }
+   });
 
    storeIngList();
 };
@@ -232,9 +222,9 @@ export const uploadRecipe = async (newRecipe) => {
 };
 
 (function () {
-   let storage = localStorage.getItem("bookmarks");
-   if (storage) state.bookmarks = JSON.parse(storage);
-
-   // storage = localStorage.getItem("list");
-   // if (storage) state.list = JSON.parse(storage);
+   let storage;
+   ["bookmarks", "list"].forEach((property) => {
+      storage = localStorage.getItem(property);
+      if (storage) state[property] = JSON.parse(storage);
+   });
 })();
