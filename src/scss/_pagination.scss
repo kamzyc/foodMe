@@ -1,0 +1,14 @@
+.pag {
+   padding: var(--main-padding);
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 1em;
+
+   &__btn {
+      font-size: 1.4rem;
+      width: 3rem;
+      height: 3rem;
+   }
+}

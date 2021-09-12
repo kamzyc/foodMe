@@ -1,0 +1,28 @@
+.alert {
+   position: fixed;
+   top: 10%;
+   right: 0;
+   background-color: var(--clr-light-100);
+   border-left: var(--rounded-corners) solid var(--clr-primary-300);
+   border-top-left-radius: var(--rounded-corners);
+   border-bottom-left-radius: var(--rounded-corners);
+   padding: 0.4em 1em;
+
+   display: flex;
+   align-content: center;
+   gap: 1rem;
+
+   &__icon {
+      width: var(--icon-size);
+      height: var(--icon-size);
+   }
+
+   &__text {
+      font-size: 1.6rem;
+      font-weight: var(--fw-medium);
+   }
+
+   &--red {
+      border-color: var(--clr-red);
+   }
+}

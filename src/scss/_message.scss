@@ -1,0 +1,35 @@
+.message {
+   margin: 2rem auto;
+   padding: var(--main-padding);
+   text-align: center;
+
+   & *:not(:last-child) {
+      margin-bottom: 1.6rem;
+   }
+
+   &__title {
+      & span {
+         letter-spacing: -3px;
+         text-decoration: underline;
+         text-decoration-color: var(--clr-primary-400);
+         text-decoration-thickness: 0.4rem;
+      }
+   }
+
+   &__icon {
+      width: 6rem;
+      height: 6rem;
+      fill: var(--clr-primary-400);
+
+      &--red {
+         fill: var(--clr-red);
+      }
+   }
+
+   &__text {
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.8rem;
+      max-width: 60ch;
+   }
+}

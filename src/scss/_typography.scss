@@ -1,0 +1,99 @@
+h1 {
+   font-size: 4.6rem;
+   font-weight: var(--fw-bold);
+   line-height: 1;
+}
+
+h2,
+h3 {
+   font-weight: var(--fw-semi-bold);
+   line-height: 1.1;
+}
+
+h2 {
+   font-size: 4rem;
+}
+
+h3 {
+   font-size: 3rem;
+}
+
+h4 {
+   font-size: 2.4rem;
+   font-weight: var(--fw-regular);
+}
+
+h5 {
+   font-size: 2rem;
+   font-weight: var(--fw-thin);
+}
+
+p {
+   font-size: 1.8rem;
+   font-weight: var(--fw-light);
+}
+
+strong {
+   font-weight: var(--fw-extra-bold);
+   color: var(--clr-primary-400);
+}
+
+a:link,
+a:visited {
+   text-decoration: none;
+}
+
+.btn {
+   border: none;
+   outline: none;
+   border-radius: var(--rounded-corners);
+   padding: 0.5em;
+   background-color: var(--clr-light-300);
+   transform: translateY(0);
+   color: var(--clr-dark-100);
+   transition: all var(--transition-time);
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   &__icon {
+      width: 2.4rem;
+      height: 2.4rem;
+      fill: var(--clr-dark-100);
+   }
+
+   &:hover,
+   &--active {
+      background-color: var(--clr-dark-100);
+      box-shadow: var(--bs-small);
+      color: var(--clr-primary-200);
+   }
+
+   &:hover {
+      transform: translateY(-0.2em);
+   }
+
+   &:active {
+      transform: translateY(0);
+   }
+
+   &--active &__icon,
+   &:hover &__icon {
+      fill: var(--clr-primary-200);
+   }
+
+   &--small {
+      & .btn__icon {
+         width: 1.8rem;
+         height: 1.8rem;
+      }
+   }
+
+   &--very-small {
+      & .btn__icon {
+         width: 1.4rem;
+         height: 1.4rem;
+      }
+   }
+}
