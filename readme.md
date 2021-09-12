@@ -21,3 +21,8 @@ Features:
 What to do:
 
 -  display alerts of recent actions
+
+Bugs:
+
+-  inputs in add recipe window stays filled when window closed
+-  add ingredients to list count wrongly

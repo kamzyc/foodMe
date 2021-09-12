@@ -92,10 +92,10 @@ const controlPagination = (page) => {
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
-      alertView.render("bookmarkAdded");
+      // alertView.render("bookmarkAdded");
    } else {
       model.removeBookmark(model.state.recipe.id);
-      alertView.render("bookmarkRemoved");
+      // alertView.render("bookmarkRemoved");
    }
 
    // update recipe view
@@ -116,13 +116,13 @@ const controlBookmarks = () => {
 const controlAddIngsToList = () => {
    model.addIngsTolist();
    ingListView.render(model.state.list);
-   alertView.render("ingAdded");
+   // alertView.render("ingAdded");
 };
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.render(model.state.list);
-   alertView.render("ingRemoved");
+   // alertView.render("ingRemoved");
 };
 
 const controlList = () => {
@@ -181,9 +181,7 @@ const controlAddRecipe = async (newRecipe) => {
 //////////////////////////////////////////////////////////////////////
 (function () {
    bookmarksView.addHandlerRender(controlBookmarks);
-
    ingListView.addHandlerRender(controlList);
-   ingListView.addHandlerRemoveIng(controlRemoveIngFromList);
 
    recipeView.addHandlerRender(controlRecipe);
    recipeView.addHandlerServings(controlServings);
@@ -193,6 +191,8 @@ const controlAddRecipe = async (newRecipe) => {
    searchView.addHandlerSearch(controlSearchResults);
 
    paginationView.addHandlerClick(controlPagination);
+
+   ingListView.addHandlerRemoveIng(controlRemoveIngFromList);
 
    addRecipeView.addHandlerUpload(controlAddRecipe);
    addRecipeView.addHandlerAddIng(controlAddIng);
