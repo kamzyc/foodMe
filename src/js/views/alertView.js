@@ -9,12 +9,17 @@ class AlertView extends View {
 
    toggle(data) {
       this.render(data);
+      this._container.classList.toggle(this._setColor());
       this._container.classList.toggle("hidden");
 
-      setTimeout(
-         () => this._container.classList.toggle("hidden"),
-         ALERT_CLOSE_SEC * 1000
-      );
+      setTimeout(() => {
+         this._container.classList.toggle("hidden");
+         this._container.classList.toggle(this._setColor());
+      }, ALERT_CLOSE_SEC * 1000);
+   }
+
+   _setColor() {
+      return `${this._data.color === "red" ? "alert--red" : "alert--green"}`;
    }
 
    _createMarkup() {

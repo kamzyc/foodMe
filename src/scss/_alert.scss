@@ -8,6 +8,7 @@
    border-top-left-radius: var(--rounded-corners);
    border-bottom-left-radius: var(--rounded-corners);
    padding: 0.4em 1em;
+   user-select: none;
 
    display: flex;
    align-content: center;
@@ -25,5 +26,17 @@
 
    &--red {
       border-color: var(--clr-red);
+   }
+
+   &--red &__icon {
+      fill: var(--clr-red);
+   }
+
+   &--green {
+      border-color: var(--clr-primary-300);
+   }
+
+   &--green &__icon {
+      fill: var(--clr-primary-300);
    }
 }
