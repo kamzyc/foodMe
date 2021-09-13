@@ -891,9 +891,14 @@ a:visited {
   border-bottom-left-radius: var(--rounded-corners);
   padding: 0.4em 1em;
   user-select: none;
+  transform: translateX(100%);
+  transition: all 0.2s;
   display: flex;
   align-content: center;
   gap: 1rem;
+}
+.alert__pop {
+  transform: translateX(0);
 }
 .alert__icon {
   width: var(--icon-size);

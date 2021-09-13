@@ -10,9 +10,16 @@
    padding: 0.4em 1em;
    user-select: none;
 
+   transform: translateX(100%);
+   transition: all 0.2s;
+
    display: flex;
    align-content: center;
    gap: 1rem;
+
+   &__pop {
+      transform: translateX(0);
+   }
 
    &__icon {
       width: var(--icon-size);

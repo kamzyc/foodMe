@@ -10,10 +10,10 @@ class AlertView extends View {
    toggle(data) {
       this.render(data);
       this._container.classList.toggle(this._setColor());
-      this._container.classList.toggle("hidden");
+      this._container.classList.toggle("alert__pop");
 
       setTimeout(() => {
-         this._container.classList.toggle("hidden");
+         this._container.classList.toggle("alert__pop");
          this._container.classList.toggle(this._setColor());
       }, ALERT_CLOSE_SEC * 1000);
    }
