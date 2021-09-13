@@ -884,6 +884,7 @@ a:visited {
   position: fixed;
   top: 10%;
   right: 0;
+  z-index: 100;
   background-color: var(--clr-light-100);
   border-left: var(--rounded-corners) solid var(--clr-primary-300);
   border-top-left-radius: var(--rounded-corners);
