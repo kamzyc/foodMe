@@ -67,38 +67,54 @@ class AddRecipeView extends View {
 
    _createIngMarkup(i) {
       return `
-               <div class="new-recipe__ing-field">
-                  <h5>Ingredient ${i}</h5>
-
-                  <button class="new-recipe__ing-remove-btn btn btn--small" type="button">
-                     <svg class="btn__icon" viewBox="0 0 24 24" width="24px">
-                        <path d="M0 0h24v24H0z" fill="none" />
-                        <path
-                           d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                     </svg>
-                  </button>
-
-                  <div class="new-recipe__field">
-                     <label>Quantity</label>
-                     <input type="number" min="0" name="quantity-${
-                        i - 1
-                     }" placeholder="Quantity" autocomplete="off">
-                  </div>
-                  <div class="new-recipe__field">
-                     <label>Unit</label>
-                     <input type="text" pattern=".*\\S.*" name="unit-${
-                        i - 1
-                     }" placeholder="Unit" autocomplete="off">
-                  </div>
-                  <div class="new-recipe__field">
-                     <label>Description</label>
-                     <input type="text" pattern=".*\\S.*" name="description-${
-                        i - 1
-                     }" placeholder="Description of ingredient"
-                     autocomplete="off" required>
-                  </div>
-               </div>
+      <div class="new-recipe__ing-field">
+         <h5>Ingredient ${i}</h5>
+         
+         <button class="new-recipe__ing-remove-btn btn btn--small" type="button">
+            <svg class="btn__icon" viewBox="0 0 24 24" width="24px">
+               <path d="M0 0h24v24H0z" fill="none" />
+               <path
+               d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            </svg>
+         </button>
+         
+         <div class="new-recipe__field">
+            <label>Quantity</label>
+            <input type="number" min="0" name="quantity-${
+               i - 1
+            }" placeholder="Quantity" autocomplete="off">
+         </div>
+         <div class="new-recipe__field">
+            <label>Unit</label>
+            <input type="text" pattern=".*\\S.*" name="unit-${
+               i - 1
+            }" placeholder="Unit" autocomplete="off">
+         </div>
+         <div class="new-recipe__field">
+            <label>Description</label>
+            <input type="text" pattern=".*\\S.*" name="description-${
+               i - 1
+            }" placeholder="Description of ingredient"
+            autocomplete="off" required>
+         </div>
+      </div>
       `;
+   }
+
+   _clearInputs() {
+      this._container.querySelectorAll("input").forEach((input) => {
+         !!input.value && (input.value = "");
+      });
+
+      [...this._ingContainer.children].forEach((child) => {
+         child.remove();
+      });
+
+      this.appendIngMarkup(1);
+   }
+
+   addHandlerClearInputs() {
+      this._btnOpen.addEventListener("click", this._clearInputs.bind(this));
    }
 
    toggleWindow() {

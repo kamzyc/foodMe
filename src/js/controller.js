@@ -144,6 +144,10 @@ const controlRemoveIng = () => {
    addRecipeView.updateIng();
 };
 
+const controlClearInputs = () => {
+   model.state.addRecipe.numIngredients = 1;
+};
+
 const controlAddRecipe = async (newRecipe) => {
    try {
       // render spinner
@@ -163,12 +167,12 @@ const controlAddRecipe = async (newRecipe) => {
       window.history.pushState(null, "", `#${model.state.recipe.id}`);
 
       // close modal
-      setTimeout(() => {
-         addRecipeView.toggleWindow();
-      }, MODAL_CLOSE_SEC * 1000);
+      // setTimeout(() => {
+      //    addRecipeView.toggleWindow();
+      // }, MODAL_CLOSE_SEC * 1000);
 
       // show alert
-      alertView.render("uploaded");
+      // alertView.render("uploaded");
 
       // resize bookmarks and ingredients max-height
       bookmarksView.resize();
@@ -198,4 +202,5 @@ const controlAddRecipe = async (newRecipe) => {
    addRecipeView.addHandlerUpload(controlAddRecipe);
    addRecipeView.addHandlerAddIng(controlAddIng);
    addRecipeView.addHandlerRemoveIng(controlRemoveIng);
+   addRecipeView.addHandlerClearInputs(controlClearInputs);
 })();
