@@ -2,6 +2,7 @@
 
 import { API_URL, API_KEY, REC_PER_SIDE, TIMEOUT_SEC } from "./config";
 import { createRecipeObject, timeout } from "./utilities";
+import alertView from "./views/alertView";
 
 export const state = {
    recipe: {},

@@ -9,7 +9,7 @@ import ingListView from "./views/ingListView.js";
 import addRecipeView from "./views/addRecipeView.js";
 import alertView from "./views/alertView.js";
 
-import { MODAL_CLOSE_SEC } from "./config.js";
+import { MODAL_CLOSE_SEC, ALERT_STATUS } from "./config.js";
 
 //////////////////////////////////////////////////////////////////////
 //^ RECIPE CONTROLLER
@@ -92,10 +92,8 @@ const controlPagination = (page) => {
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
-      // alertView.render("bookmarkAdded");
    } else {
       model.removeBookmark(model.state.recipe.id);
-      // alertView.render("bookmarkRemoved");
    }
 
    // update recipe view
@@ -116,14 +114,14 @@ const controlBookmarks = () => {
 const controlAddIngsToList = () => {
    model.addIngsToList();
    ingListView.render(model.state.list);
-   // alertView.render("ingAdded");
-   console.log(model.state.recipe);
 };
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.render(model.state.list);
-   // alertView.render("ingRemoved");
+
+   //! test alert view
+   alertView.toggle(ALERT_STATUS.REMOVE_ING);
 };
 
 const controlList = () => {
@@ -169,9 +167,6 @@ const controlAddRecipe = async (newRecipe) => {
       setTimeout(() => {
          addRecipeView.toggleWindow();
       }, MODAL_CLOSE_SEC * 1000);
-
-      // show alert
-      // alertView.render("uploaded");
 
       // resize bookmarks and ingredients max-height
       bookmarksView.resize();
