@@ -43,6 +43,25 @@ class AddRecipeView extends View {
       });
    }
 
+   addHandlerClearInputs() {
+      this._btnOpen.addEventListener("click", this._clearInputs.bind(this));
+   }
+
+   toggleWindow() {
+      this._overlay.classList.toggle("hidden");
+      this._window.classList.toggle("hidden");
+   }
+
+   _addHandlerShowWindow() {
+      this._btnOpen.addEventListener("click", this.toggleWindow.bind(this));
+   }
+
+   _addHandlerHideWindow() {
+      [this._btnClose, this._overlay].forEach((element) =>
+         element.addEventListener("click", this.toggleWindow.bind(this))
+      );
+   }
+
    appendIngMarkup(i) {
       this._ingContainer.insertAdjacentHTML(
          "beforeend",
@@ -63,6 +82,18 @@ class AddRecipeView extends View {
             input.setAttribute("name", attr.slice(0, -1) + i);
          });
       });
+   }
+
+   _clearInputs() {
+      this._container.querySelectorAll("input").forEach((input) => {
+         !!input.value && (input.value = "");
+      });
+
+      [...this._ingContainer.children].forEach((child) => {
+         child.remove();
+      });
+
+      this.appendIngMarkup(1);
    }
 
    _createIngMarkup(i) {
@@ -99,37 +130,6 @@ class AddRecipeView extends View {
          </div>
       </div>
       `;
-   }
-
-   _clearInputs() {
-      this._container.querySelectorAll("input").forEach((input) => {
-         !!input.value && (input.value = "");
-      });
-
-      [...this._ingContainer.children].forEach((child) => {
-         child.remove();
-      });
-
-      this.appendIngMarkup(1);
-   }
-
-   addHandlerClearInputs() {
-      this._btnOpen.addEventListener("click", this._clearInputs.bind(this));
-   }
-
-   toggleWindow() {
-      this._overlay.classList.toggle("hidden");
-      this._window.classList.toggle("hidden");
-   }
-
-   _addHandlerShowWindow() {
-      this._btnOpen.addEventListener("click", this.toggleWindow.bind(this));
-   }
-
-   _addHandlerHideWindow() {
-      [this._btnClose, this._overlay].forEach((element) =>
-         element.addEventListener("click", this.toggleWindow.bind(this))
-      );
    }
 }
 
