@@ -92,8 +92,10 @@ const controlPagination = (page) => {
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
+      alertView.toggle(ALERT_STATUS.ADD_BOOKMARK);
    } else {
       model.removeBookmark(model.state.recipe.id);
+      alertView.toggle(ALERT_STATUS.REMOVE_BOOKMARK);
    }
 
    // update recipe view
@@ -114,13 +116,12 @@ const controlBookmarks = () => {
 const controlAddIngsToList = () => {
    model.addIngsToList();
    ingListView.render(model.state.list);
+   alertView.toggle(ALERT_STATUS.ADD_ING);
 };
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.render(model.state.list);
-
-   //! test alert view
    alertView.toggle(ALERT_STATUS.REMOVE_ING);
 };
 

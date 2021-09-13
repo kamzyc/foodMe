@@ -19,7 +19,7 @@ export const ALERT_STATUS = {
    },
 
    ADD_ING: {
-      data: "ingredient added",
+      data: "ingredients added",
       color: "green",
    },
 
