@@ -20,7 +20,10 @@ Features:
 
 What to do:
 
--  display alert after correct upload
 -  clipboard on ingredients list (add icon also)
 -  refactor stylesheet
 -  change height of bookmarks view and ingredients list
+
+Bugs:
+
+-  add recipe window stays with error after fail on upload
