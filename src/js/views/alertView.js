@@ -9,17 +9,18 @@ class AlertView extends View {
 
    toggle(data) {
       this.render(data);
-      this._container.classList.toggle(this._setColor());
+      this._setColor();
       this._container.classList.toggle("alert__pop");
 
       setTimeout(() => {
          this._container.classList.toggle("alert__pop");
-         this._container.classList.toggle(this._setColor());
       }, ALERT_CLOSE_SEC * 1000);
    }
 
    _setColor() {
-      return `${this._data.color === "red" ? "alert--red" : "alert--green"}`;
+      let oppositeColor = this._data.color === "red" ? "green" : "red";
+      this._container.classList.remove(`alert--${oppositeColor}`);
+      this._container.classList.add(`alert--${this._data.color}`);
    }
 
    _createMarkup() {
@@ -29,7 +30,7 @@ class AlertView extends View {
    }
 
    _createIcon() {
-      if (this._data.data === ALERT_STATUS.REMOVE_ING.data)
+      if (this._data.data === ALERT_STATUS.removeIngredient.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -37,7 +38,7 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.ADD_ING.data)
+      if (this._data.data === ALERT_STATUS.addIngredient.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -45,7 +46,7 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.ADD_BOOKMARK.data)
+      if (this._data.data === ALERT_STATUS.addBookmark.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>
@@ -53,7 +54,7 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.REMOVE_BOOKMARK.data)
+      if (this._data.data === ALERT_STATUS.removeBookmark.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>

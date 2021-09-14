@@ -22,6 +22,10 @@ const controlRecipe = async () => {
       // render spinner
       recipeView.renderSpinner();
 
+      // update max-height
+      ingListView.resize();
+      bookmarksView.resize();
+
       // update results view
       resultsView.update(model.loadPageSearchResults());
 
@@ -92,10 +96,10 @@ const controlPagination = (page) => {
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
-      alertView.toggle(ALERT_STATUS.ADD_BOOKMARK);
+      alertView.toggle(ALERT_STATUS.addBookmark);
    } else {
       model.removeBookmark(model.state.recipe.id);
-      alertView.toggle(ALERT_STATUS.REMOVE_BOOKMARK);
+      alertView.toggle(ALERT_STATUS.removeBookmark);
    }
 
    // update recipe view
@@ -116,13 +120,13 @@ const controlBookmarks = () => {
 const controlAddIngsToList = () => {
    model.addIngsToList();
    ingListView.render(model.state.list);
-   alertView.toggle(ALERT_STATUS.ADD_ING);
+   alertView.toggle(ALERT_STATUS.addIngredient);
 };
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.render(model.state.list);
-   alertView.toggle(ALERT_STATUS.REMOVE_ING);
+   alertView.toggle(ALERT_STATUS.removeIngredient);
 };
 
 const controlList = () => {

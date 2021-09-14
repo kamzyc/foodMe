@@ -8,22 +8,22 @@ export const MODAL_CLOSE_SEC = 1;
 export const ALERT_CLOSE_SEC = 1;
 
 export const ALERT_STATUS = {
-   ADD_BOOKMARK: {
+   addBookmark: {
       data: "bookmark added",
       color: "green",
    },
 
-   REMOVE_BOOKMARK: {
+   removeBookmark: {
       data: "bookmark removed",
       color: "red",
    },
 
-   ADD_ING: {
+   addIngredient: {
       data: "ingredients added",
       color: "green",
    },
 
-   REMOVE_ING: {
+   removeIngredient: {
       data: "ingredient removed",
       color: "red",
    },
