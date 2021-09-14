@@ -18,8 +18,9 @@ class AlertView extends View {
    }
 
    _setColor() {
-      let oppositeColor = this._data.color === "red" ? "green" : "red";
-      this._container.classList.remove(`alert--${oppositeColor}`);
+      this._container.classList.remove(
+         `alert--${this._data.color === "red" ? "green" : "red"}`
+      );
       this._container.classList.add(`alert--${this._data.color}`);
    }
 
@@ -59,6 +60,22 @@ class AlertView extends View {
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>
             <path d="M21,7h-6V5h6V7z M19,10.9c-0.32,0.07-0.66,0.1-1,0.1c-2.76,0-5-2.24-5-5c0-1.13,0.37-2.16,1-3L7,3C5.9,3,5,3.9,5,5v16l7-3 l7,3V10.9z"/>
+         </svg>
+         `;
+
+      if (this._data.data === ALERT_STATUS.uploadOk.data)
+         return `
+         <svg class="alert__icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+         </svg>
+         `;
+
+      if (this._data.data === ALERT_STATUS.uploadOk.data)
+         return `
+         <svg viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/>
          </svg>
          `;
    }

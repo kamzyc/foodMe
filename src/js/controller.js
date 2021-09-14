@@ -52,8 +52,6 @@ const controlRecipe = async () => {
 
 const controlServings = (servings) => {
    model.updateServings(servings);
-
-   // update recipie view
    recipeView.update(model.state.recipe);
 };
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +81,7 @@ const controlSearchResults = async () => {
 };
 
 const controlPagination = (page) => {
-   // render new results
+   // render new page results
    resultsView.render(model.loadPageSearchResults(page));
 
    // render new pagination btns
@@ -165,6 +163,14 @@ const controlAddRecipe = async (newRecipe) => {
       // render bookmark view
       bookmarksView.render(model.state.bookmarks);
 
+      // resize bookmarks and ingredients max-height
+      bookmarksView.resize();
+      ingListView.resize();
+
+      // alert
+      if (model.state.addRecipe.status) alertView.toggle(ALERT_STATUS.uploadOk);
+      else alertView.toggle(ALERT_STATUS.uploadFail);
+
       // change id in url
       window.history.pushState(null, "", `#${model.state.recipe.id}`);
 
@@ -172,11 +178,8 @@ const controlAddRecipe = async (newRecipe) => {
       setTimeout(() => {
          addRecipeView.toggleWindow();
       }, MODAL_CLOSE_SEC * 1000);
-
-      // resize bookmarks and ingredients max-height
-      bookmarksView.resize();
-      ingListView.resize();
    } catch (err) {
+      console.error("💥", err);
       addRecipeView.renderError(err.message);
    }
 };

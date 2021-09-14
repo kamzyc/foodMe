@@ -27,4 +27,14 @@ export const ALERT_STATUS = {
       data: "ingredient removed",
       color: "red",
    },
+
+   uploadOk: {
+      data: "recipe uploaded",
+      color: "green",
+   },
+
+   uploadFail: {
+      data: "upload failed",
+      color: "red",
+   },
 };

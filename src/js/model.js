@@ -15,6 +15,7 @@ export const state = {
    bookmarks: [],
    addRecipe: {
       numIngredients: 1,
+      status: false,
    },
    list: [],
 };
@@ -59,8 +60,8 @@ export const loadSearchResults = async (query) => {
       if (!res.ok)
          throw new Error(`💥💥💥 ${res.status} - ${data.message} 💥💥💥`);
 
-      const data = await res.json();
-      const { recipes } = data.data;
+      const { data } = await res.json();
+      const { recipes } = data;
       state.search.results = recipes.map(createRecipeObject);
       state.search.page = 1;
    } catch (err) {
@@ -173,6 +174,7 @@ export const removeIngFromList = (i) => {
 //^ UPLOAD DATA
 export const uploadRecipe = async (newRecipe) => {
    try {
+      state.addRecipe.status = false;
       const ingredients = [];
       const ingArr = Object.entries(newRecipe)
          .filter((entry) => entry[0].includes("-"))
@@ -191,7 +193,7 @@ export const uploadRecipe = async (newRecipe) => {
          source_url: newRecipe.sourceUrl,
          image_url: newRecipe.image,
          publisher: newRecipe.publisher,
-         cooking_time: newRecipe.cookingTime,
+         cooking_time: +newRecipe.cookingTime,
          servings: +newRecipe.servings,
          ingredients,
       };
@@ -209,12 +211,13 @@ export const uploadRecipe = async (newRecipe) => {
 
       const { data } = await res.json();
       const { recipe } = data;
+      console.log(data);
 
       if (!res.ok)
          throw new Error(`💥💥💥 ${res.status} - ${data.message} 💥💥💥`);
 
       state.recipe = createRecipeObject(recipe);
-
+      state.addRecipe.status = true;
       addBookmark(state.recipe);
    } catch (err) {
       console.error(err);
