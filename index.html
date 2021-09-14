@@ -133,37 +133,37 @@
             <div class="new-recipe__field">
                <label for="title">Title</label>
                <input type="text" pattern=".*\S.*" name="title" id="title" placeholder="Title of recipe"
-                  autocomplete="off">
+                  autocomplete="off" required>
             </div>
 
             <div class="new-recipe__field">
                <label for="sourceUrl">Source URL</label>
                <input type="url" pattern="https?://.+" name="sourceUrl" title="must starts with http:// or https://"
-                  id="sourceUrl" placeholder="URL for source" autocomplete="off">
+                  id="sourceUrl" placeholder="URL for source" autocomplete="off" required>
             </div>
 
             <div class="new-recipe__field">
                <label for="image">Image URL</label>
                <input type="url" pattern="https?://.+" title="must starts with http:// or https://" name="image"
-                  id="image" placeholder=" URL of image" autocomplete="off">
+                  id="image" placeholder=" URL of image" autocomplete="off" required>
             </div>
 
             <div class="new-recipe__field">
                <label for="publisher">Publisher</label>
                <input type="text" pattern=".*\S.*" name="publisher" id="publisher" placeholder="Publisher of recipe"
-                  autocomplete="off">
+                  autocomplete="off" required>
             </div>
 
             <div class="new-recipe__field">
                <label for="cookingTime">Prep time (min)</label>
                <input type="number" min="0" title="must be number (at least 0)" name="cookingTime" id="cookingTime"
-                  placeholder="Preparation time" autocomplete="off">
+                  placeholder="Preparation time" autocomplete="off" required>
             </div>
 
             <div class="new-recipe__field">
                <label for="servings">Servings</label>
                <input type="number" min="1" title="must be number (at least 1)" name="servings" id="servings"
-                  placeholder="Amount of servings" autocomplete="off">
+                  placeholder="Amount of servings" autocomplete="off" required>
             </div>
          </div>
 
