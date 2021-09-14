@@ -10,8 +10,8 @@ Soon will make this readme better ;)
 
 Features:
 
--  display ingredients and image
 -  search recipe and display results
+-  display ingredients and image
 -  pagination on search results
 -  update servings with amount of ingredients
 -  add/remove bookmarks
@@ -21,3 +21,6 @@ Features:
 What to do:
 
 -  display alert after correct upload
+-  clipboard on ingredients list (add icon also)
+-  refactor stylesheet
+-  change height of bookmarks view and ingredients list
