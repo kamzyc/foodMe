@@ -2,7 +2,6 @@
 
 import { API_URL, API_KEY, REC_PER_SIDE, TIMEOUT_SEC } from "./config";
 import { createRecipeObject, timeout } from "./utilities";
-import alertView from "./views/alertView";
 
 export const state = {
    recipe: {},
@@ -15,7 +14,6 @@ export const state = {
    bookmarks: [],
    addRecipe: {
       numIngredients: 1,
-      status: false,
    },
    list: [],
 };
@@ -174,7 +172,6 @@ export const removeIngFromList = (i) => {
 //^ UPLOAD DATA
 export const uploadRecipe = async (newRecipe) => {
    try {
-      state.addRecipe.status = false;
       const ingredients = [];
       const ingArr = Object.entries(newRecipe)
          .filter((entry) => entry[0].includes("-"))
@@ -209,15 +206,13 @@ export const uploadRecipe = async (newRecipe) => {
          timeout(TIMEOUT_SEC),
       ]);
 
-      const { data } = await res.json();
-      const { recipe } = data;
-      console.log(data);
+      const data = await res.json();
+      const { recipe } = data.data;
 
       if (!res.ok)
          throw new Error(`💥💥💥 ${res.status} - ${data.message} 💥💥💥`);
 
       state.recipe = createRecipeObject(recipe);
-      state.addRecipe.status = true;
       addBookmark(state.recipe);
    } catch (err) {
       console.error(err);

@@ -168,8 +168,7 @@ const controlAddRecipe = async (newRecipe) => {
       ingListView.resize();
 
       // alert
-      if (model.state.addRecipe.status) alertView.toggle(ALERT_STATUS.uploadOk);
-      else alertView.toggle(ALERT_STATUS.uploadFail);
+      alertView.toggle(ALERT_STATUS.uploadOk);
 
       // change id in url
       window.history.pushState(null, "", `#${model.state.recipe.id}`);
@@ -179,8 +178,15 @@ const controlAddRecipe = async (newRecipe) => {
          addRecipeView.toggleWindow();
       }, MODAL_CLOSE_SEC * 1000);
    } catch (err) {
-      console.error("💥", err);
+      alertView.toggle(ALERT_STATUS.uploadFail);
       addRecipeView.renderError(err.message);
+
+      // change id in url
+      window.history
+         // close modal (just for expierience)
+         .setTimeout(() => {
+            addRecipeView.toggleWindow();
+         }, MODAL_CLOSE_SEC * 1000);
    }
 };
 //////////////////////////////////////////////////////////////////////
