@@ -206,6 +206,8 @@ export const uploadRecipe = async (newRecipe) => {
          timeout(TIMEOUT_SEC),
       ]);
 
+      console.log(res);
+
       const data = await res.json();
       const { recipe } = data.data;
 

@@ -9,7 +9,11 @@ import ingListView from "./views/ingListView.js";
 import addRecipeView from "./views/addRecipeView.js";
 import alertView from "./views/alertView.js";
 
-import { MODAL_CLOSE_SEC, ALERT_STATUS } from "./config.js";
+import {
+   MODAL_CLOSE_SEC,
+   MODAL_ERROR_CLOSE_SEC,
+   ALERT_STATUS,
+} from "./config.js";
 
 //////////////////////////////////////////////////////////////////////
 //^ RECIPE CONTROLLER
@@ -129,6 +133,7 @@ const controlRemoveIngFromList = (i) => {
 };
 
 const controlList = () => {
+   ingListView.resize();
    ingListView.render(model.state.list);
 };
 
@@ -168,26 +173,25 @@ const controlAddRecipe = async (newRecipe) => {
       bookmarksView.resize();
       ingListView.resize();
 
-      // alert
-      alertView.toggle(ALERT_STATUS.uploadOk);
-
       // change id in url
       window.history.pushState(null, "", `#${model.state.recipe.id}`);
 
-      // close modal (just for expierience)
+      // alert
+      alertView.toggle(ALERT_STATUS.uploadOk);
+
+      // close window
       setTimeout(() => {
          addRecipeView.toggleWindow();
+         addRecipeView.renderForm();
       }, MODAL_CLOSE_SEC * 1000);
    } catch (err) {
       alertView.toggle(ALERT_STATUS.uploadFail);
       addRecipeView.renderError(err.message);
 
-      // change id in url
-      window.history
-         // close modal (just for expierience)
-         .setTimeout(() => {
-            addRecipeView.toggleWindow();
-         }, MODAL_CLOSE_SEC * 1000);
+      setTimeout(() => {
+         addRecipeView.toggleWindow();
+         addRecipeView.renderForm();
+      }, MODAL_ERROR_CLOSE_SEC * 1000);
    }
 };
 //////////////////////////////////////////////////////////////////////
