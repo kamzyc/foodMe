@@ -22,7 +22,6 @@ What to do:
 
 -  clipboard on ingredients list (add icon also)
 -  refactor stylesheet
--  change height of bookmarks view and ingredients list
 
 Bugs:
 

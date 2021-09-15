@@ -44,7 +44,10 @@ export const timeout = function (s) {
 export const setMaxHeight = (element) => {
    let value = window
       .getComputedStyle(document.querySelector(".recipe"))
-      .getPropertyValue("height");
+      .getPropertyValue("height")
+      .slice(0, -2);
 
-   element.style.maxHeight = value;
+   element.style.maxHeight = `${
+      value > 1000 ? value - 100 + "px" : value + "px"
+   }`;
 };

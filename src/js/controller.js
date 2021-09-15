@@ -109,6 +109,7 @@ const controlBookmark = () => {
 };
 
 const controlBookmarks = () => {
+   bookmarksView.resize();
    bookmarksView.render(model.state.bookmarks);
 };
 //////////////////////////////////////////////////////////////////////
