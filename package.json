@@ -25,6 +25,7 @@
       "sass": "^1.38.0"
    },
    "dependencies": {
+      "clipboard": "^2.0.8",
       "fractional": "^1.0.0"
    }
 }
