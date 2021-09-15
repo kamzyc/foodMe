@@ -20,9 +20,7 @@ Features:
 
 What to do:
 
--  clipboard on ingredients list (add icon also)
+-  alert for clipboard actions
 -  refactor stylesheet
 
 Bugs:
-
--  add recipe window stays with error after fail on upload
