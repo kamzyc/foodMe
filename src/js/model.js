@@ -166,6 +166,25 @@ export const removeIngFromList = (i) => {
    storeIngList();
 };
 
+export const clipboardIngList = async () => {
+   try {
+      let text = "";
+      state.list.forEach(({ quantity, unit, description }) => {
+         text += `${quantity ? quantity : ""} ${
+            unit ? unit : ""
+         } ${description}\n`;
+      });
+
+      const type = "text/plain";
+      const blob = new Blob([text], { type });
+      const data = [new ClipboardItem({ [type]: blob })];
+
+      await navigator.clipboard.write(data);
+   } catch (err) {
+      throw err;
+   }
+};
+
 //////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////

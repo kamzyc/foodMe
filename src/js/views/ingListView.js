@@ -33,12 +33,35 @@ class IngListView extends View {
       );
    }
 
+   addHandlerClipboard(handler) {
+      this._container.addEventListener("click", function (e) {
+         const btn = e.target.closest(".ing-list__clipboard-btn");
+
+         if (!btn) return;
+         handler();
+      });
+   }
+
    resize() {
       setMaxHeight(this._container.parentNode);
    }
 
    _createMarkup() {
-      return `${this._data.map(this._createIngredientMarkup).join("")}`;
+      const ingredients = `${this._data
+         .map(this._createIngredientMarkup)
+         .join("")}`;
+      const btn = this._createClipboardButtonMarkup();
+
+      return `${ingredients} ${btn}`;
+   }
+
+   _createClipboardButtonMarkup() {
+      if (this._data.length !== 0)
+         return `
+      <button class="btn ing-list__clipboard-btn" data-clipboard-target="ingredients__item-quantity">
+         add to clipboard
+      </button>
+      `;
    }
 
    _createIngredientMarkup(ingredient) {

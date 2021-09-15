@@ -137,6 +137,15 @@ const controlList = () => {
    ingListView.render(model.state.list);
 };
 
+const controlClipboard = async () => {
+   try {
+      console.log("Clipboard...");
+      model.clipboardIngList();
+   } catch (err) {
+      console.error(err);
+   }
+};
+
 //////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////
@@ -199,7 +208,9 @@ const controlAddRecipe = async (newRecipe) => {
 //////////////////////////////////////////////////////////////////////
 (function () {
    bookmarksView.addHandlerRender(controlBookmarks);
+
    ingListView.addHandlerRender(controlList);
+   ingListView.addHandlerClipboard(controlClipboard);
 
    recipeView.addHandlerRender(controlRecipe);
    recipeView.addHandlerServings(controlServings);
