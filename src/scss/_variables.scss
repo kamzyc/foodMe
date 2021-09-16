@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Glory:wght@100..800&display=swap");
 
 :root {
    //? COLORS
@@ -25,25 +25,15 @@
    --clr-red: hsl(350, 75%, 50%);
 
    //? FONT
-   --ff-primary: "Montserrat", sans-serif;
-
-   --fw-black: 900;
-   --fw-extra-bold: 800;
-   --fw-bold: 700;
-   --fw-semi-bold: 600;
-   --fw-medium: 500;
-   --fw-regular: 400;
-   --fw-light: 300;
-   --fw-extra-light: 200;
-   --fw-thin: 100;
+   --ff-primary: "Glory", sans-serif;
 
    //? EFFECTS
    // shadows
-   --bs-small: 0 0.2rem 0 hsl(30 13% 20% / 0.2);
+   --bs-small: 0 0.2rem 0.2rem hsl(30 13% 20% / 0.2);
    --bs-medium: 0 0.4rem 0.4rem hsl(30 13% 20% / 0.3);
    --bs-big: 0 2rem 6rem 0.5rem hsl(100 12% 8%/ 0.3);
 
-   --rounded-corners: 5px;
+   --rounded-corners: 8px;
    --border-line: 2px solid var(--clr-primary-400);
    --transition-time: 0.2s;
 
@@ -56,7 +46,7 @@
    --main-padding: var(--block-padding) var(--inline-padding);
 }
 
-@mixin bottom-border-line {
+@mixin border-bottom {
    border-bottom: var(--border-line);
    box-shadow: var(--bs-small);
 }

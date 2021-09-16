@@ -23,11 +23,14 @@ body {
    box-sizing: border-box;
    scroll-behavior: smooth;
    text-rendering: optimizeSpeed;
+
    min-height: 100vh;
    padding: 3% 0;
+
+   color: var(--clr-dark-200);
    font-family: var(--ff-primary);
    line-height: 1.6;
-   color: var(--clr-dark-200);
+
    background: linear-gradient(
       120deg,
       var(--clr-dark-200) 0%,
@@ -89,7 +92,6 @@ select {
 .container {
    margin: 0 auto;
    width: clamp(70rem, 80%, 120rem);
-   // min-height: 80vh;
    background: var(--clr-light-100);
    box-shadow: var(--bs-big);
    border-radius: var(--rounded-corners);
@@ -97,31 +99,30 @@ select {
 
    display: grid;
    grid-template-columns: 1fr 2fr;
-   grid-template-rows: repeat(2, max-content);
-   align-items: start;
+   // grid-template-rows: repeat(2, max-content);
+   // align-items: start;
 }
 
 .header {
    grid-column: 1 / -1;
-   background-color: var(--clr-light-100);
-   height: var(--header-height);
-   border-bottom: var(--border-line);
-   box-shadow: var(--bs-small);
 
    display: flex;
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
    gap: max(15%, 5rem);
+
+   height: var(--header-height);
+   background-color: var(--clr-light-100);
+
+   @include border-bottom;
 }
 
 .search-results {
    grid-column: 1 / 1;
-   height: 100%;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-   min-height: 50rem;
 }
 
 .recipe {
@@ -129,18 +130,21 @@ select {
    display: flex;
    flex-direction: column;
    justify-content: center;
-   height: 100%;
-   min-height: 50rem;
 }
 
 .spinner {
-   margin: 2rem auto;
-   text-align: center;
-   padding: var(--main-padding);
    display: flex;
    align-items: center;
    justify-content: center;
-   grid-column: 1 / -1;
+
+   margin: 2rem auto;
+   padding: var(--main-padding);
+
+   text-align: center;
+
+   .new-recipe > & {
+      grid-column: 1 / -1;
+   }
 
    & > div {
       display: inline-block;
@@ -148,6 +152,7 @@ select {
       height: 3rem;
       border-radius: var(--rounded-corners);
       background-color: var(--clr-primary-300);
+
       animation: bounce 1s infinite ease-in-out both;
 
       &:nth-child(1) {
@@ -157,10 +162,6 @@ select {
       &:nth-child(2) {
          animation-delay: -0.15s;
          margin: 0 1rem;
-      }
-
-      .new-recipe > & {
-         grid-column: 1 / -1;
       }
    }
 
