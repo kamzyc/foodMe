@@ -31,7 +31,8 @@ class AlertView extends View {
    }
 
    _createIcon() {
-      if (this._data.data === ALERT_STATUS.removeIngredient.data)
+      // ing remove
+      if (this._data.data === ALERT_STATUS.ingList.remove.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -39,7 +40,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.addIngredient.data)
+      //ing add
+      if (this._data.data === ALERT_STATUS.ingList.add.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -47,7 +49,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.addBookmark.data)
+      // bookmark add
+      if (this._data.data === ALERT_STATUS.bookmark.add.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>
@@ -55,7 +58,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.removeBookmark.data)
+      // bookmark remove
+      if (this._data.data === ALERT_STATUS.bookmark.remove.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>
@@ -63,7 +67,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.uploadOk.data)
+      // upload ok
+      if (this._data.data === ALERT_STATUS.upload.ok.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none"/>
@@ -71,7 +76,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.uploadFail.data)
+      // upload fail
+      if (this._data.data === ALERT_STATUS.upload.fail.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none"/>
@@ -79,7 +85,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.clipboardOk.data)
+      // clipboard ok
+      if (this._data.data === ALERT_STATUS.clipboard.ok.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <g>
@@ -93,7 +100,8 @@ class AlertView extends View {
          </svg>
          `;
 
-      if (this._data.data === ALERT_STATUS.clipboardFail.data)
+      // clipboard fail
+      if (this._data.data === ALERT_STATUS.clipboard.fail.data)
          return `
          <svg class="alert__icon" viewBox="0 0 24 24">
             <rect fill="none" height="24" width="24"/>

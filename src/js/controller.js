@@ -98,10 +98,10 @@ const controlPagination = (page) => {
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
-      alertView.toggle(ALERT_STATUS.addBookmark);
+      alertView.toggle(ALERT_STATUS.bookmark.add);
    } else {
       model.removeBookmark(model.state.recipe.id);
-      alertView.toggle(ALERT_STATUS.removeBookmark);
+      alertView.toggle(ALERT_STATUS.bookmark.remove);
    }
 
    // update recipe view
@@ -123,13 +123,13 @@ const controlBookmarks = () => {
 const controlAddIngsToList = () => {
    model.addIngsToList();
    ingListView.render(model.state.list);
-   alertView.toggle(ALERT_STATUS.addIngredient);
+   alertView.toggle(ALERT_STATUS.ingList.add);
 };
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.render(model.state.list);
-   alertView.toggle(ALERT_STATUS.removeIngredient);
+   alertView.toggle(ALERT_STATUS.ingList.remove);
 };
 
 const controlList = () => {
@@ -140,10 +140,9 @@ const controlList = () => {
 const controlClipboard = async () => {
    try {
       await model.clipboardIngList();
-      console.log("clipboard...");
-      alertView.toggle(ALERT_STATUS.clipboardOk);
+      alertView.toggle(ALERT_STATUS.clipboard.ok);
    } catch (err) {
-      alertView.toggle(ALERT_STATUS.clipboardFail);
+      alertView.toggle(ALERT_STATUS.clipboard.fail);
    }
 };
 
@@ -187,7 +186,7 @@ const controlAddRecipe = async (newRecipe) => {
       window.history.pushState(null, "", `#${model.state.recipe.id}`);
 
       // alert
-      alertView.toggle(ALERT_STATUS.uploadOk);
+      alertView.toggle(ALERT_STATUS.upload.ok);
 
       // close window
       setTimeout(() => {
@@ -195,7 +194,7 @@ const controlAddRecipe = async (newRecipe) => {
          addRecipeView.renderForm();
       }, MODAL_CLOSE_SEC * 1000);
    } catch (err) {
-      alertView.toggle(ALERT_STATUS.uploadFail);
+      alertView.toggle(ALERT_STATUS.upload.fail);
       addRecipeView.renderError(err.message);
 
       setTimeout(() => {

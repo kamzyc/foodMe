@@ -7,43 +7,49 @@ export const MODAL_ERROR_CLOSE_SEC = 3;
 export const ALERT_CLOSE_SEC = 1;
 
 export const ALERT_STATUS = {
-   addBookmark: {
-      data: "bookmark added",
-      color: "green",
+   bookmark: {
+      add: {
+         data: "bookmark added",
+         color: "green",
+      },
+
+      remove: {
+         data: "bookmark removed",
+         color: "red",
+      },
    },
 
-   removeBookmark: {
-      data: "bookmark removed",
-      color: "red",
+   ingList: {
+      add: {
+         data: "ingredients added",
+         color: "green",
+      },
+
+      remove: {
+         data: "ingredient removed",
+         color: "red",
+      },
    },
 
-   addIngredient: {
-      data: "ingredients added",
-      color: "green",
+   upload: {
+      ok: {
+         data: "recipe uploaded",
+         color: "green",
+      },
+      fail: {
+         data: "upload failed",
+         color: "red",
+      },
    },
 
-   removeIngredient: {
-      data: "ingredient removed",
-      color: "red",
-   },
-
-   uploadOk: {
-      data: "recipe uploaded",
-      color: "green",
-   },
-
-   uploadFail: {
-      data: "upload failed",
-      color: "red",
-   },
-
-   clipboardOk: {
-      data: "copied",
-      color: "green",
-   },
-
-   clipboardFail: {
-      data: "copy failed",
-      color: "red",
+   clipboard: {
+      ok: {
+         data: "copied",
+         color: "green",
+      },
+      fail: {
+         data: "copy failed",
+         color: "red",
+      },
    },
 };
