@@ -139,10 +139,11 @@ const controlList = () => {
 
 const controlClipboard = async () => {
    try {
-      console.log("Clipboard...");
-      model.clipboardIngList();
+      await model.clipboardIngList();
+      console.log("clipboard...");
+      alertView.toggle(ALERT_STATUS.clipboardOk);
    } catch (err) {
-      console.error(err);
+      alertView.toggle(ALERT_STATUS.clipboardFail);
    }
 };
 

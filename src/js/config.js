@@ -36,4 +36,14 @@ export const ALERT_STATUS = {
       data: "upload failed",
       color: "red",
    },
+
+   clipboardOk: {
+      data: "copied",
+      color: "green",
+   },
+
+   clipboardFail: {
+      data: "copy failed",
+      color: "red",
+   },
 };
