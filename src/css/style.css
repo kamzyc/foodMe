@@ -183,8 +183,8 @@ select {
 
 h1 {
   font-size: 4.6rem;
-  font-weight: 700;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 0.9;
 }
 
 h2,
@@ -213,7 +213,7 @@ h5 {
 
 p {
   font-size: 1.8rem;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 strong {
@@ -221,41 +221,49 @@ strong {
   color: var(--clr-primary-400);
 }
 
+small {
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
 a:link,
 a:visited {
   text-decoration: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .btn {
-  border: none;
-  outline: none;
-  border-radius: var(--rounded-corners);
-  padding: 0.5em;
-  background-color: var(--clr-light-300);
-  transform: translateY(0);
-  color: var(--clr-dark-100);
-  transition: all var(--transition-time);
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5em;
+  border: none;
+  outline: none;
+  border-radius: var(--rounded-corners);
+  background-color: var(--clr-light-300);
+  color: var(--clr-dark-100);
+  cursor: pointer;
+  transform: translateY(0);
+  transition: all var(--transition-time);
 }
 .btn__icon {
   width: 2.4rem;
   height: 2.4rem;
   fill: var(--clr-dark-100);
 }
-.btn:hover, .btn--active {
+.btn:hover, .btn:focus, .btn--active {
   background-color: var(--clr-dark-100);
   box-shadow: var(--bs-small);
   color: var(--clr-primary-200);
 }
-.btn:hover {
+.btn:hover, .btn:focus {
   transform: translateY(-0.2em);
 }
 .btn:active {
   transform: translateY(0);
 }
-.btn--active .btn__icon, .btn:hover .btn__icon {
+.btn--active .btn__icon, .btn:hover .btn__icon, .btn:focus .btn__icon {
   fill: var(--clr-primary-200);
 }
 .btn--small .btn__icon {
@@ -481,32 +489,32 @@ a:visited {
 }
 
 .title {
-  height: 40rem;
   position: relative;
+  height: 40rem;
   border-bottom: var(--border-line);
   box-shadow: var(--bs-small);
 }
 .title::after {
   content: "";
   position: absolute;
-  z-index: 2;
   inset: 0;
+  z-index: 2;
   display: inline-block;
-  background-image: linear-gradient(to bottom, rgba(34, 31, 27, 0.7) 0%, rgba(34, 31, 27, 0.8) 100%);
+  background-image: linear-gradient(to bottom, rgba(34, 31, 27, 0.6) 0%, rgba(34, 31, 27, 0.9) 100%);
 }
 .title__text {
   position: absolute;
-  max-width: 20ch;
-  z-index: 3;
-  color: var(--clr-light-100);
   top: 50%;
   left: 50%;
+  z-index: 3;
+  max-width: 25ch;
+  color: var(--clr-light-100);
   transform: translate(-50%, -50%);
 }
 .title__img {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   object-fit: cover;
   z-index: 1;
 }
@@ -516,8 +524,8 @@ a:visited {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--clr-light-200);
   padding: var(--main-padding);
+  background-color: var(--clr-light-200);
   border-bottom: var(--border-line);
   box-shadow: var(--bs-small);
 }
@@ -545,9 +553,9 @@ a:visited {
 
 .ingredients {
   padding: var(--main-padding);
+  background-color: var(--clr-light-100);
   border-bottom: var(--border-line);
   box-shadow: var(--bs-small);
-  background-color: var(--clr-light-100);
 }
 .ingredients__title {
   text-align: center;
@@ -556,8 +564,7 @@ a:visited {
 .ingredients__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  column-gap: 5%;
-  row-gap: 2.2rem;
+  gap: 2.2rem 5%;
 }
 .ingredients__item {
   display: flex;
@@ -569,19 +576,23 @@ a:visited {
   font-size: 1.8rem;
   color: var(--clr-primary-300);
 }
+.ingredients__item-quantity {
+  flex-shrink: 0;
+  font-weight: 500;
+}
 .ingredients__add-ing {
-  margin-top: var(--block-padding);
   display: flex;
   justify-content: center;
   align-content: center;
   gap: 1rem;
+  margin-top: var(--block-padding);
   font-size: 1.4rem;
 }
 
 .source {
+  flex: 1;
   padding: var(--main-padding);
   background-color: var(--clr-light-200);
-  flex: 1;
 }
 .source__title {
   text-align: center;
@@ -591,12 +602,12 @@ a:visited {
   margin-bottom: var(--block-padding);
 }
 .source__link:link, .source__link:visited {
+  display: inline-block;
+  padding: 0.8em 1.6em;
   color: var(--clr-light-100);
+  font-size: 2rem;
   border-radius: 5px;
   background-color: var(--clr-dark-100);
-  font-size: 2rem;
-  padding: 0.8em 1.6em;
-  display: inline-block;
   transform: translateY(0rem);
   transition: all var(--transition-time);
 }
