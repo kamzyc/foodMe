@@ -10,9 +10,7 @@
    &__title {
       & span {
          letter-spacing: -3px;
-         text-decoration: underline;
-         text-decoration-color: var(--clr-primary-400);
-         text-decoration-thickness: 0.4rem;
+         @include underline;
       }
    }
 

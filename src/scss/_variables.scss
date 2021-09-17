@@ -44,9 +44,19 @@
    --inline-padding: 5rem;
    --block-padding: 4rem;
    --main-padding: var(--block-padding) var(--inline-padding);
+
+   --z-top: 100;
+   --z-mid: 99;
+   --z-low: 98;
 }
 
 @mixin border-bottom {
    border-bottom: var(--border-line);
    box-shadow: var(--bs-small);
+}
+
+@mixin underline {
+   text-decoration: underline;
+   text-decoration-color: var(--clr-primary-400);
+   text-decoration-thickness: 0.4rem;
 }

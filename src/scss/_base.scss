@@ -92,6 +92,7 @@ select {
 .container {
    margin: 0 auto;
    width: clamp(70rem, 80%, 120rem);
+   min-height: 60vh;
    background: var(--clr-light-100);
    box-shadow: var(--bs-big);
    border-radius: var(--rounded-corners);
@@ -99,8 +100,6 @@ select {
 
    display: grid;
    grid-template-columns: 1fr 2fr;
-   // grid-template-rows: repeat(2, max-content);
-   // align-items: start;
 }
 
 .header {
