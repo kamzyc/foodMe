@@ -18,7 +18,7 @@
   --bs-small: 0 0.2rem 0.2rem hsl(30 13% 20% / 0.2);
   --bs-medium: 0 0.4rem 0.4rem hsl(30 13% 20% / 0.3);
   --bs-big: 0 2rem 6rem 0.5rem hsl(100 12% 8%/ 0.3);
-  --rounded-corners: 8px;
+  --rounded-corners: 7px;
   --border-line: 2px solid var(--clr-primary-400);
   --transition-time: 0.2s;
   --header-height: 9rem;
@@ -26,13 +26,20 @@
   --inline-padding: 5rem;
   --block-padding: 4rem;
   --main-padding: var(--block-padding) var(--inline-padding);
-  --z-top: 100;
-  --z-mid: 99;
-  --z-low: 98;
 }
 
 html {
   font-size: 62.5%;
+}
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
 }
 
 body,
@@ -56,6 +63,7 @@ body {
   box-sizing: border-box;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
+  overflow-x: hidden;
   min-height: 100vh;
   padding: 3% 0;
   color: var(--clr-dark-200);
@@ -64,6 +72,11 @@ body {
   background: linear-gradient(120deg, var(--clr-dark-200) 0%, var(--clr-dark-300) 100%);
   background-repeat: repeat;
   background-size: cover;
+}
+@media only screen and (max-width: 75em) {
+  body {
+    padding: 0;
+  }
 }
 
 *,
@@ -113,7 +126,7 @@ select {
 }
 .container {
   margin: 0 auto;
-  width: clamp(70rem, 80%, 120rem);
+  width: clamp(115rem, 80%, 150rem);
   min-height: 60vh;
   background: var(--clr-light-100);
   box-shadow: var(--bs-big);
@@ -121,6 +134,15 @@ select {
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: var(--header-height) 1fr;
+}
+@media only screen and (max-width: 75em) {
+  .container {
+    margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+  }
 }
 
 .header {
@@ -186,7 +208,7 @@ select {
 }
 
 h1 {
-  font-size: 4.6rem;
+  font-size: 5rem;
   font-weight: 800;
   line-height: 0.9;
 }
@@ -221,8 +243,10 @@ p {
 }
 
 strong {
-  font-weight: 800;
-  color: var(--clr-primary-400);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--clr-primary-400);
+  text-decoration-thickness: 0.4rem;
 }
 
 small {
@@ -533,6 +557,19 @@ a:visited {
   border-bottom: var(--border-line);
   box-shadow: var(--bs-small);
 }
+@media only screen and (max-width: 62.5em) {
+  .details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 3rem 1rem;
+  }
+  .details .detail:nth-child(3) {
+    grid-column: 2/-1;
+    grid-row: 1/1;
+  }
+}
 
 .detail {
   display: flex;
@@ -732,7 +769,7 @@ a:visited {
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--z-mid);
+  z-index: 99;
   background-color: var(--clr-dark-300);
   opacity: 0.95;
 }
@@ -742,10 +779,20 @@ a:visited {
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: var(--z-top);
+  z-index: 100;
+  min-width: 100rem;
   padding: var(--main-padding);
   background-color: var(--clr-light-100);
   border-radius: var(--rounded-corners);
+}
+@media only screen and (max-width: 62.5em) {
+  .new-recipe-window {
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 0;
+    min-width: none;
+  }
 }
 .new-recipe-window__btn {
   position: absolute;
@@ -768,7 +815,7 @@ a:visited {
 .new-recipe {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 5rem;
+  gap: 5rem 3rem;
 }
 .new-recipe__ing-area {
   display: flex;
@@ -784,7 +831,7 @@ a:visited {
   grid-template-columns: repeat(2, 20rem);
   align-items: center;
   gap: 2rem 1rem;
-  padding: 2em;
+  padding: 2rem;
   background-color: var(--clr-light-200);
   border-radius: var(--rounded-corners);
   box-shadow: var(--bs-medium);
@@ -796,7 +843,7 @@ a:visited {
   grid-column: 1/-1;
 }
 .new-recipe__ing-remove-btn {
-  grid-template-columns: 2/-1;
+  grid-column: 2/-1;
   justify-self: end;
 }
 .new-recipe__field label {

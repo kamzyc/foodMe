@@ -6,7 +6,7 @@
 .overlay {
    position: fixed;
    inset: 0;
-   z-index: var(--z-mid);
+   z-index: 99;
 
    background-color: var(--clr-dark-300);
    opacity: 0.95;
@@ -18,12 +18,22 @@
    top: 10%;
    left: 50%;
    transform: translateX(-50%);
-   z-index: var(--z-top);
+   z-index: 100;
+   min-width: 100rem;
 
    padding: var(--main-padding);
 
    background-color: var(--clr-light-100);
    border-radius: var(--rounded-corners);
+
+   @include responsive($bp-m) {
+      left: 0;
+      right: 0;
+      transform: none;
+
+      border-radius: 0;
+      min-width: none;
+   }
 
    &__btn {
       position: absolute;
@@ -46,7 +56,7 @@
 .new-recipe {
    display: grid;
    grid-template-columns: repeat(2, 1fr);
-   gap: 5rem;
+   gap: 5rem 3rem;
 
    &__ing-area {
       display: flex;
@@ -65,7 +75,7 @@
       align-items: center;
       gap: 2rem 1rem;
 
-      padding: 2em;
+      padding: 2rem;
       background-color: var(--clr-light-200);
 
       border-radius: var(--rounded-corners);
@@ -81,7 +91,7 @@
    }
 
    &__ing-remove-btn {
-      grid-template-columns: 2 / -1;
+      grid-column: 2 / -1;
       justify-self: end;
    }
 

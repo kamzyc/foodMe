@@ -1,5 +1,13 @@
 html {
    font-size: 62.5%; // 1rem = 10px
+
+   @include responsive($bp-l) {
+      font-size: 56.25%;
+   }
+
+   @include responsive($bp-s) {
+      font-size: 50%;
+   }
 }
 
 body,
@@ -23,6 +31,7 @@ body {
    box-sizing: border-box;
    scroll-behavior: smooth;
    text-rendering: optimizeSpeed;
+   overflow-x: hidden;
 
    min-height: 100vh;
    padding: 3% 0;
@@ -38,6 +47,10 @@ body {
    );
    background-repeat: repeat;
    background-size: cover;
+
+   @include responsive($bp-l) {
+      padding: 0;
+   }
 }
 
 *,
@@ -91,7 +104,7 @@ select {
 
 .container {
    margin: 0 auto;
-   width: clamp(70rem, 80%, 120rem);
+   width: clamp(115rem, 80%, 150rem);
    min-height: 60vh;
    background: var(--clr-light-100);
    box-shadow: var(--bs-big);
@@ -100,6 +113,15 @@ select {
 
    display: grid;
    grid-template-columns: 1fr 2fr;
+   grid-template-rows: var(--header-height) 1fr;
+
+   @include responsive($bp-l) {
+      margin: 0;
+      width: 100%;
+      min-height: 100vh;
+
+      border-radius: 0;
+   }
 }
 
 .header {

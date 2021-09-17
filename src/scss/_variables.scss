@@ -33,7 +33,7 @@
    --bs-medium: 0 0.4rem 0.4rem hsl(30 13% 20% / 0.3);
    --bs-big: 0 2rem 6rem 0.5rem hsl(100 12% 8%/ 0.3);
 
-   --rounded-corners: 8px;
+   --rounded-corners: 7px;
    --border-line: 2px solid var(--clr-primary-400);
    --transition-time: 0.2s;
 
@@ -43,11 +43,8 @@
 
    --inline-padding: 5rem;
    --block-padding: 4rem;
-   --main-padding: var(--block-padding) var(--inline-padding);
 
-   --z-top: 100;
-   --z-mid: 99;
-   --z-low: 98;
+   --main-padding: var(--block-padding) var(--inline-padding);
 }
 
 @mixin border-bottom {
@@ -59,4 +56,26 @@
    text-decoration: underline;
    text-decoration-color: var(--clr-primary-400);
    text-decoration-thickness: 0.4rem;
+}
+
+// Responsive website - breakpoints
+
+// 1200px
+// remove margins, recipie container full width and height
+// smaller base font-size (to 9px)
+$bp-l: 75em;
+
+// 1000px
+// change add-recipe window
+// change details area
+$bp-m: 62.5em;
+
+// 900px
+// smaller bose font-size (to 8 px);
+$bp-s: 56.25em;
+
+@mixin responsive($breakpoint) {
+   @media only screen and (max-width: $breakpoint) {
+      @content;
+   }
 }
