@@ -1,6 +1,10 @@
 .results {
    display: flex;
    flex-direction: column;
+
+   @include responsive($bp-s) {
+      flex-direction: row;
+   }
 }
 
 .pag {

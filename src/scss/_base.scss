@@ -122,10 +122,16 @@ select {
 
       border-radius: 0;
    }
+
+   @include responsive($bp-s) {
+      grid-template-columns: 1fr;
+      grid-template-rows: var(--header-height) max-content 1fr;
+   }
 }
 
 .header {
    grid-column: 1 / -1;
+   grid-row: 1 / 2;
 
    display: flex;
    flex-direction: row;
@@ -141,16 +147,28 @@ select {
 
 .search-results {
    grid-column: 1 / 1;
+   grid-row: 2 / -1;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+
+   @include responsive($bp-s) {
+      grid-column: 1 / -1;
+      grid-row: 2 / 3;
+   }
 }
 
 .recipe {
    grid-column: 2 / -1;
+   grid-row: 2 / -1;
    display: flex;
    flex-direction: column;
    justify-content: center;
+
+   @include responsive($bp-s) {
+      grid-column: 1 / -1;
+      grid-row: 3 / -1;
+   }
 }
 
 .spinner {
