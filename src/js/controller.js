@@ -115,6 +115,7 @@ const controlBookmark = () => {
 const controlBookmarks = () => {
    bookmarksView.resize();
    bookmarksView.render(model.state.bookmarks);
+   bookmarksView.updateNotification(model.state.bookmarks.length);
 };
 //////////////////////////////////////////////////////////////////////
 
