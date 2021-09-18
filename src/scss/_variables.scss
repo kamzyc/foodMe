@@ -1,5 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Glory:wght@100..800&display=swap");
 
+// Responsive website - breakpoints
+
+// 1200px
+// remove margins, recipie container full width and height
+// smaller base font-size (to 9px)
+$bp-l: 75em;
+
+// 1000px
+// change add-recipe window
+// change details area
+$bp-m: 62.5em;
+
+// 900px
+// smaller bose font-size (to 8 px);
+// change layout
+$bp-s: 56.25em;
+
+@mixin responsive($breakpoint) {
+   @media only screen and (max-width: $breakpoint) {
+      @content;
+   }
+}
+
 :root {
    //? COLORS
    // Light
@@ -44,6 +67,11 @@
    --inline-padding: 5rem;
    --block-padding: 4rem;
 
+   @include responsive($bp-s) {
+      --inline-padding: 8rem;
+      --block-padding: 5rem;
+   }
+
    --main-padding: var(--block-padding) var(--inline-padding);
 }
 
@@ -56,26 +84,4 @@
    text-decoration: underline;
    text-decoration-color: var(--clr-primary-400);
    text-decoration-thickness: 0.4rem;
-}
-
-// Responsive website - breakpoints
-
-// 1200px
-// remove margins, recipie container full width and height
-// smaller base font-size (to 9px)
-$bp-l: 75em;
-
-// 1000px
-// change add-recipe window
-// change details area
-$bp-m: 62.5em;
-
-// 900px
-// smaller bose font-size (to 8 px);
-$bp-s: 56.25em;
-
-@mixin responsive($breakpoint) {
-   @media only screen and (max-width: $breakpoint) {
-      @content;
-   }
 }

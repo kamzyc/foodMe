@@ -4,6 +4,7 @@
 
    @include responsive($bp-s) {
       flex-direction: row;
+      overflow-x: auto;
    }
 }
 
@@ -14,6 +15,11 @@
    gap: 1em;
 
    padding: var(--main-padding);
+
+   @include responsive($bp-s) {
+      padding: calc(var(--block-padding) / 2) calc(var(--inline-padding) / 2);
+      gap: 2em;
+   }
 
    &__btn {
       width: 3rem;

@@ -2,6 +2,12 @@
    height: 14rem;
    display: block;
 
+   @include responsive($bp-s) {
+      .results & {
+         min-width: 40rem;
+      }
+   }
+
    &__link:link,
    &__link:visited {
       height: 100%;
