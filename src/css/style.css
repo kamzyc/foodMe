@@ -29,8 +29,13 @@
 }
 @media only screen and (max-width: 56.25em) {
   :root {
-    --inline-padding: 8rem;
+    --inline-padding: 7rem;
     --block-padding: 5rem;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  :root {
+    --inline-padding: 6rem;
   }
 }
 
@@ -45,6 +50,11 @@ html {
 @media only screen and (max-width: 56.25em) {
   html {
     font-size: 50%;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  html {
+    font-size: 43.75%;
   }
 }
 
@@ -155,7 +165,7 @@ select {
 @media only screen and (max-width: 56.25em) {
   .container {
     grid-template-columns: 1fr;
-    grid-template-rows: var(--header-height) max-content 1fr;
+    grid-template-rows: max-content max-content 1fr;
   }
 }
 
@@ -174,7 +184,12 @@ select {
 }
 @media only screen and (max-width: 37.5em) {
   .header {
-    gap: 4rem;
+    gap: 5rem;
+  }
+}
+@media only screen and (max-width: 28.125em) {
+  .header {
+    gap: 3rem;
   }
 }
 
@@ -443,6 +458,7 @@ a:visited {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   height: 100%;
 }
 .navbar__btn {
@@ -754,6 +770,11 @@ a:visited {
 @media only screen and (max-width: 56.25em) {
   .results .preview {
     min-width: 25vw;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  .results .preview {
+    min-width: 50vw;
   }
 }
 .preview__link:link, .preview__link:visited {

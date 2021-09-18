@@ -13,7 +13,7 @@ $bp-l: 75em;
 $bp-m: 62.5em;
 
 // 900px
-// smaller bose font-size (to 8 px);
+// smaller base font-size (to 8 px);
 // change layout
 $bp-s: 56.25em;
 
@@ -24,6 +24,12 @@ $bp-modal: 50em;
 $bp-xs: 37.5em;
 // change new recipie window
 // smaller gap in header
+// smaller padding
+
+// 450px
+$bp-xxs: 28.125em;
+// change header layout
+// smaller base font-size (to 7px)
 
 @mixin responsive($breakpoint) {
    @media only screen and (max-width: $breakpoint) {
@@ -76,8 +82,12 @@ $bp-xs: 37.5em;
    --block-padding: 4rem;
 
    @include responsive($bp-s) {
-      --inline-padding: 8rem;
+      --inline-padding: 7rem;
       --block-padding: 5rem;
+   }
+
+   @include responsive($bp-xs) {
+      --inline-padding: 6rem;
    }
 
    --main-padding: var(--block-padding) var(--inline-padding);

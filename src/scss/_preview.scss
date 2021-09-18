@@ -8,6 +8,12 @@
       }
    }
 
+   @include responsive($bp-xs) {
+      .results & {
+         min-width: 50vw;
+      }
+   }
+
    &__link:link,
    &__link:visited {
       height: 100%;

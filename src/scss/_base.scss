@@ -8,6 +8,10 @@ html {
    @include responsive($bp-s) {
       font-size: 50%;
    }
+
+   @include responsive($bp-xxs) {
+      font-size: 43.75%;
+   }
 }
 
 body,
@@ -127,7 +131,7 @@ select {
 
    @include responsive($bp-s) {
       grid-template-columns: 1fr;
-      grid-template-rows: var(--header-height) max-content 1fr;
+      grid-template-rows: max-content max-content 1fr;
    }
 }
 
@@ -147,7 +151,11 @@ select {
    @include border-bottom;
 
    @include responsive($bp-xs) {
-      gap: 4rem;
+      gap: 5rem;
+   }
+
+   @include responsive($bp-xxs) {
+      gap: 3rem;
    }
 }
 
