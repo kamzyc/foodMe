@@ -4,7 +4,7 @@
 
    @include responsive($bp-s) {
       .results & {
-         min-width: 40rem;
+         min-width: 25vw;
       }
    }
 
@@ -20,6 +20,12 @@
       position: relative;
       overflow-y: hidden;
       border-bottom: var(--border-line);
+
+      @include responsive($bp-s) {
+         .results & {
+            border-bottom: none;
+         }
+      }
 
       &::after {
          content: "";

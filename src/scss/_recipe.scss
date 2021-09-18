@@ -5,6 +5,10 @@
 
    @include border-bottom;
 
+   @include responsive($bp-s) {
+      height: 35rem;
+   }
+
    &::after {
       content: "";
 
@@ -30,6 +34,7 @@
       max-width: 25ch;
 
       color: var(--clr-light-100);
+      text-align: center;
 
       transform: translate(-50%, -50%);
    }
