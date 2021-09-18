@@ -172,6 +172,11 @@ select {
   border-bottom: var(--border-line);
   box-shadow: var(--bs-small);
 }
+@media only screen and (max-width: 37.5em) {
+  .header {
+    gap: 4rem;
+  }
+}
 
 .search-results {
   grid-column: 1/1;
@@ -179,6 +184,9 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background: repeating-linear-gradient(45deg, var(--clr-light-100), var(--clr-light-100) 20px, var(--clr-light-200) 20px, var(--clr-light-200) 40px);
 }
 @media only screen and (max-width: 56.25em) {
   .search-results {
@@ -186,6 +194,7 @@ select {
     grid-row: 2/3;
     overflow-x: hidden;
     width: 100vw;
+    min-height: 14rem;
     border-bottom: var(--border-line);
     box-shadow: var(--bs-small);
   }
@@ -650,7 +659,6 @@ a:visited {
 }
 .ingredients__item-quantity {
   flex-shrink: 0;
-  font-weight: 500;
 }
 .ingredients__add-ing {
   display: flex;
@@ -707,6 +715,7 @@ a:visited {
 .results {
   display: flex;
   flex-direction: column;
+  flex: 1;
   width: 100%;
 }
 @media only screen and (max-width: 56.25em) {
@@ -714,6 +723,8 @@ a:visited {
     flex-direction: row;
     overflow-x: auto;
     overscroll-behavior-x: contain;
+    border-bottom: var(--border-line);
+    box-shadow: var(--bs-small);
   }
 }
 
@@ -825,9 +836,9 @@ a:visited {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 99;
   width: 100%;
   height: 100%;
-  z-index: 99;
   background-color: var(--clr-dark-300);
   opacity: 0.95;
 }
@@ -838,18 +849,15 @@ a:visited {
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  min-width: 100rem;
+  width: 80%;
   padding: var(--main-padding);
   background-color: var(--clr-light-100);
   border-radius: var(--rounded-corners);
 }
-@media only screen and (max-width: 62.5em) {
+@media only screen and (max-width: 37.5em) {
   .new-recipe-window {
-    left: 0;
-    right: 0;
-    transform: none;
+    width: 100%;
     border-radius: 0;
-    min-width: none;
   }
 }
 .new-recipe-window__btn {
@@ -875,6 +883,11 @@ a:visited {
   grid-template-columns: repeat(2, 1fr);
   gap: 5rem 3rem;
 }
+@media only screen and (max-width: 50em) {
+  .new-recipe {
+    grid-template-columns: 1fr;
+  }
+}
 .new-recipe__ing-area {
   display: flex;
   flex-direction: column;
@@ -886,7 +899,7 @@ a:visited {
 }
 .new-recipe__ing-field {
   display: grid;
-  grid-template-columns: repeat(2, 20rem);
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 2rem 1rem;
   padding: 2rem;
@@ -987,7 +1000,7 @@ a:visited {
   background-color: var(--clr-light-100);
   border-left: var(--rounded-corners) solid var(--clr-primary-300);
   border-radius: var(--rounded-corners) 0 0 var(--rounded-corners);
-  box-shadow: var(--bs-medium);
+  box-shadow: var(--bs-small);
   user-select: none;
   transform: translateX(100%);
   transition: all 0.2s;

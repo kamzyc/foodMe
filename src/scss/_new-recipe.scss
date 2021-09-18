@@ -5,12 +5,12 @@
 
 .overlay {
    position: fixed;
-   // inset: 0;
    top: 0;
    left: 0;
+   z-index: 99;
+
    width: 100%;
    height: 100%;
-   z-index: 99;
 
    background-color: var(--clr-dark-300);
    opacity: 0.95;
@@ -23,20 +23,16 @@
    left: 50%;
    transform: translateX(-50%);
    z-index: 100;
-   min-width: 100rem;
 
+   width: 80%;
    padding: var(--main-padding);
 
    background-color: var(--clr-light-100);
    border-radius: var(--rounded-corners);
 
-   @include responsive($bp-m) {
-      left: 0;
-      right: 0;
-      transform: none;
-
+   @include responsive($bp-xs) {
+      width: 100%;
       border-radius: 0;
-      min-width: none;
    }
 
    &__btn {
@@ -62,6 +58,10 @@
    grid-template-columns: repeat(2, 1fr);
    gap: 5rem 3rem;
 
+   @include responsive($bp-modal) {
+      grid-template-columns: 1fr;
+   }
+
    &__ing-area {
       display: flex;
       flex-direction: column;
@@ -75,7 +75,7 @@
 
    &__ing-field {
       display: grid;
-      grid-template-columns: repeat(2, 20rem);
+      grid-template-columns: repeat(2, 1fr);
       align-items: center;
       gap: 2rem 1rem;
 

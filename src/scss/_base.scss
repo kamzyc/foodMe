@@ -145,6 +145,10 @@ select {
    background-color: var(--clr-light-100);
 
    @include border-bottom;
+
+   @include responsive($bp-xs) {
+      gap: 4rem;
+   }
 }
 
 .search-results {
@@ -155,13 +159,24 @@ select {
    flex-direction: column;
    justify-content: space-between;
 
+   position: relative;
+   overflow: hidden;
+
+   background: repeating-linear-gradient(
+      45deg,
+      var(--clr-light-100),
+      var(--clr-light-100) 20px,
+      var(--clr-light-200) 20px,
+      var(--clr-light-200) 40px
+   );
+
    @include responsive($bp-s) {
       grid-column: 1 / -1;
       grid-row: 2 / 3;
 
       overflow-x: hidden;
       width: 100vw;
-
+      min-height: 14rem;
       @include border-bottom;
    }
 }
