@@ -583,6 +583,13 @@ a:visited {
 .ing-list__remove-btn {
   margin-left: auto;
 }
+.ing-list__clipboard-btn {
+  height: 5rem;
+  width: 12rem;
+  font-size: 1.4rem;
+  align-self: center;
+  margin-bottom: 0.8rem;
+}
 .ing-list::-webkit-scrollbar-track {
   background-color: var(--clr-light-100);
 }
@@ -758,8 +765,6 @@ a:visited {
     flex-direction: row;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    border-bottom: var(--border-line);
-    box-shadow: var(--bs-small);
   }
 }
 

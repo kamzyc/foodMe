@@ -231,6 +231,15 @@
       margin-left: auto;
    }
 
+   &__clipboard-btn {
+      // margin: 1em 2em;
+      height: 5rem;
+      width: 12rem;
+      font-size: 1.4rem;
+      align-self: center;
+      margin-bottom: 0.8rem;
+   }
+
    &::-webkit-scrollbar {
       &-track {
          background-color: var(--clr-light-100);

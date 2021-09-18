@@ -9,8 +9,6 @@
       flex-direction: row;
       overflow-x: auto;
       overscroll-behavior-x: contain;
-
-      @include border-bottom;
    }
 }
 
