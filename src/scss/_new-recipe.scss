@@ -58,7 +58,8 @@
    grid-template-columns: repeat(2, 1fr);
    gap: 5rem 3rem;
 
-   @include responsive($bp-modal) {
+   // 800px - for new recipie window
+   @include responsive(50em) {
       grid-template-columns: 1fr;
    }
 

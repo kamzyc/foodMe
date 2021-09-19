@@ -3,7 +3,8 @@
 
    height: 40rem;
 
-   @include border-bottom;
+   border-bottom: var(--border-line);
+   box-shadow: var(--bs-small);
 
    @include responsive($bp-s) {
       height: 35rem;
@@ -59,7 +60,8 @@
 
    background-color: var(--clr-light-200);
 
-   @include border-bottom;
+   border-bottom: var(--border-line);
+   box-shadow: var(--bs-small);
 
    @include responsive($bp-s) {
       justify-content: space-between;
@@ -96,7 +98,8 @@
 
    background-color: var(--clr-light-100);
 
-   @include border-bottom;
+   border-bottom: var(--border-line);
+   box-shadow: var(--bs-small);
 
    &__title {
       text-align: center;
