@@ -1,18 +1,17 @@
 {
    "name": "foodme",
    "version": "1.0.0",
-   "description": "Search food recipies app",
-   "main": "index.js",
+   "description": "Recipe search application",
+   "default": "index.html",
    "browserslist": "last 10 versions",
    "scripts": {
       "watch:sass": "sass src/scss/main.scss src/css/style.css -w",
       "devserver": "live-server --browser=firefox",
       "start:css": "npm-run-all --parallel devserver watch:sass",
       "start": "parcel index.html",
-      "build": "build index.html"
+      "build": "parcel build index.html --dist-dir ./dist"
    },
    "keywords": [
-      "food",
       "food",
       "recipies"
    ],
