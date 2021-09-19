@@ -162,7 +162,7 @@
    position: absolute;
    top: 100%;
    overflow-y: auto;
-   z-index: 10;
+   z-index: inherit;
 
    width: calc(var(--width) + 21.6rem);
 
@@ -232,12 +232,10 @@
    }
 
    &__clipboard-btn {
-      // margin: 1em 2em;
-      height: 5rem;
-      width: 12rem;
+      margin-bottom: 0.5em;
+
       font-size: 1.4rem;
       align-self: center;
-      margin-bottom: 0.8rem;
    }
 
    &::-webkit-scrollbar {
