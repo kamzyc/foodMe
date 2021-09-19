@@ -355,18 +355,18 @@ a:visited {
   height: 2.4rem;
   fill: var(--clr-dark-100);
 }
-.btn:hover, .btn:focus, .btn--active {
+.btn:hover, .btn--active {
   background-color: var(--clr-dark-100);
   box-shadow: var(--bs-small);
   color: var(--clr-primary-200);
 }
-.btn:hover, .btn:focus {
+.btn:hover {
   transform: translateY(-0.2em);
 }
 .btn:active {
   transform: translateY(0);
 }
-.btn--active .btn__icon, .btn:hover .btn__icon, .btn:focus .btn__icon {
+.btn--active .btn__icon, .btn:hover .btn__icon {
   fill: var(--clr-primary-200);
 }
 .btn--small .btn__icon {
@@ -880,6 +880,11 @@ a:visited {
   height: 100%;
   background-color: var(--clr-dark-300);
   opacity: 0.95;
+}
+@supports (backdrop-filter: none) {
+  .overlay {
+    backdrop-filter: blur(5px);
+  }
 }
 
 .new-recipe-window {

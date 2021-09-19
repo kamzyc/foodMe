@@ -189,6 +189,8 @@ class RecipieView extends View {
                </svg>
             </div>
          </a>
+
+         
       </section>
       `;
    }
