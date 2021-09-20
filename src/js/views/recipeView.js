@@ -86,7 +86,9 @@ class RecipieView extends View {
                d="M9.5 12c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0-6c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm1.5 7H8c-3.309 0-6 2.691-6 6v1h2v-1c0-2.206 1.794-4 4-4h3c2.206 0 4 1.794 4 4v1h2v-1c0-3.309-2.691-6-6-6z" />
             </svg>
 
-            <p class="detail__text">${this._data.servings} Servings</p>
+            <p class="detail__text">${this._data.servings} Serving${
+         this._data.servings === 1 ? "" : "s"
+      }</p>
 
 
             <div class="detail__btns">
