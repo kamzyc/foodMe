@@ -2,8 +2,7 @@
 
 import View from "../view.js";
 import { setMaxHeight } from "../utilities.js";
-
-import { Fraction } from "fractional";
+import { Fraction } from "fraction.js";
 
 class IngListView extends View {
    _container = document.querySelector(".ing-list__list");

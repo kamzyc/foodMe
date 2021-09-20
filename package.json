@@ -24,6 +24,6 @@
       "sass": "^1.38.0"
    },
    "dependencies": {
-      "fractional": "^1.0.0"
+      "fraction.js": "^4.1.1"
    }
 }

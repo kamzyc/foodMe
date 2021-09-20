@@ -1,8 +1,7 @@
 "use strict";
 
 import View from "../view.js";
-
-import { Fraction } from "fractional";
+import { Fraction } from "fraction.js";
 
 class RecipieView extends View {
    _container = document.querySelector(".recipe");
