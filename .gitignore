@@ -3,3 +3,4 @@
 /src/snippets.html
 /dist
 /.parcel-cache
+/.env
