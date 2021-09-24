@@ -32,6 +32,10 @@ export const ALERT_STATUS = {
          data: "ingredient removed",
          color: "red",
       },
+      removeAll: {
+         data: "all ingredeints removed",
+         color: "red",
+      },
    },
 
    upload: {

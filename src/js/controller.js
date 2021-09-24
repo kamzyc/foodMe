@@ -136,6 +136,7 @@ const controlRemoveIngFromList = (i) => {
 const controlRemoveAllIngsFromList = () => {
    model.removeAllIngsFromList();
    ingListView.render(model.state.list);
+   alertView.toggle(ALERT_STATUS.ingList.removeAll);
 };
 
 const controlList = () => {

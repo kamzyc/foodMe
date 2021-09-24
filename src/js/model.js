@@ -168,6 +168,7 @@ export const removeIngFromList = (i) => {
 
 export const removeAllIngsFromList = () => {
    state.list = [];
+   storeIngList();
 };
 
 export const clipboardIngList = async () => {
