@@ -2,7 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 export const API_KEY = process.env.API_KEY;
-export const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
+export const API_URL = process.env.API_URL;
 export const REC_PER_SIDE = 8;
 export const TIMEOUT_SEC = 5;
 export const MODAL_CLOSE_SEC = 1;
