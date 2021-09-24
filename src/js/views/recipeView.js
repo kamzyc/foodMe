@@ -16,7 +16,6 @@ class RecipieView extends View {
 
    addHandlerServings(handler) {
       this._container.addEventListener("click", (e) => {
-         e.preventDefault();
          const btn = e.target.closest(".btn-update");
 
          if (!btn) return;
@@ -28,7 +27,6 @@ class RecipieView extends View {
 
    addHandlerBookmarks(handler) {
       this._container.addEventListener("click", (e) => {
-         e.preventDefault();
          const btn = e.target.closest(".btn-bookmark");
 
          if (!btn) return;
@@ -38,7 +36,6 @@ class RecipieView extends View {
 
    addHandlerIngList(handler) {
       this._container.addEventListener("click", (e) => {
-         e.preventDefault();
          const btn = e.target.closest(".ingredients__add-ing");
 
          if (!btn) return;
@@ -67,6 +64,7 @@ class RecipieView extends View {
    _createDetailsMarkup() {
       return `
       <section class="details">
+
          <div class="detail">
             <svg class="detail__icon" viewBox="0 0 24 24">
 
@@ -128,6 +126,7 @@ class RecipieView extends View {
                <path d="M19 10.132v-6c0-1.103-.897-2-2-2H7c-1.103 0-2 .897-2 2V22l7-4.666L19 22V10.132z" />
             </svg>
          </button>
+         
       </section>
       `;
    }
@@ -180,18 +179,17 @@ class RecipieView extends View {
          This recipe was carefully designed and tested by <strong>${this._data.publisher}</strong>. Please check out
          directions at their website.
          </p>
-
+         
          <a class="source__link" href="${this._data.sourceUrl}" target="_blank">
-            <div class="source__content">
+            <span class="source__content">
                Full recipe
                <svg class="source__icon" viewBox="0 0 24 24">
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
                </svg>
-            </div>
+            </span>
          </a>
 
-         
       </section>
       `;
    }
