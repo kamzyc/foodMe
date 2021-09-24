@@ -59,12 +59,21 @@ class IngListView extends View {
          .map(this._createIngredientMarkup)
          .join("")}`;
 
-      return `${ingredients} ${this._createClipboardButtonMarkup()} ${this._createRemoveAllIngredientsButtonMarkup()}`;
+      return `${ingredients} ${this._createButtonsMarkup()}`;
+   }
+
+   _createButtonsMarkup() {
+      if (this._data.length) {
+         return `
+         <div class="ing-list__btns">
+            ${this._createClipboardButtonMarkup()} ${this._createRemoveAllIngredientsButtonMarkup()}
+         </div>
+         `;
+      }
    }
 
    _createClipboardButtonMarkup() {
-      if (this._data.length !== 0)
-         return `
+      return `
       <button class="btn ing-list__clipboard-btn">
          add to clipboard
       </button>
@@ -72,8 +81,7 @@ class IngListView extends View {
    }
 
    _createRemoveAllIngredientsButtonMarkup() {
-      if (this._data.length !== 0)
-         return `
+      return `
       <button class="btn ing-list__remove-all-btn">
          remove all
       </button>

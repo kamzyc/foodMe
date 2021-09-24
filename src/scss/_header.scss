@@ -231,11 +231,19 @@
       margin-left: auto;
    }
 
-   &__clipboard-btn {
-      margin-bottom: 0.5em;
+   &__btns {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
 
+      margin-bottom: 0.5em;
+      padding: 0 1.4rem;
+   }
+
+   &__clipboard-btn,
+   &__remove-all-btn {
+      flex: 1;
       font-size: 1.4rem;
-      align-self: center;
    }
 
    &::-webkit-scrollbar {
