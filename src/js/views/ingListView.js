@@ -41,6 +41,15 @@ class IngListView extends View {
       });
    }
 
+   addHandlerRemoveAll(handler) {
+      this._container.addEventListener("click", function (e) {
+         const btn = e.target.closest(".ing-list__remove-all-btn");
+
+         if (!btn) return;
+         handler();
+      });
+   }
+
    resize() {
       setMaxHeight(this._container.parentNode);
    }
@@ -49,18 +58,26 @@ class IngListView extends View {
       const ingredients = `${this._data
          .map(this._createIngredientMarkup)
          .join("")}`;
-      const btn = this._createClipboardButtonMarkup();
 
-      return `${ingredients} ${btn}`;
+      return `${ingredients} ${this._createClipboardButtonMarkup()} ${this._createRemoveAllIngredientsButtonMarkup()}`;
    }
 
    _createClipboardButtonMarkup() {
       if (this._data.length !== 0)
          return `
-      <button class="btn ing-list__clipboard-btn" data-clipboard-target="ingredients__item-quantity">
+      <button class="btn ing-list__clipboard-btn">
          add to clipboard
       </button>
       `;
+   }
+
+   _createRemoveAllIngredientsButtonMarkup() {
+      if (this._data.length !== 0)
+         return `
+      <button class="btn ing-list__remove-all-btn">
+         remove all
+      </button>
+   `;
    }
 
    _createIngredientMarkup(ingredient) {

@@ -129,8 +129,13 @@ const controlAddIngsToList = () => {
 
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
-   ingListView.render(model.state.list);
+   ingListView.update(model.state.list);
    alertView.toggle(ALERT_STATUS.ingList.remove);
+};
+
+const controlRemoveAllIngsFromList = () => {
+   model.removeAllIngsFromList();
+   ingListView.render(model.state.list);
 };
 
 const controlList = () => {
@@ -212,6 +217,7 @@ const controlAddRecipe = async (newRecipe) => {
 
    ingListView.addHandlerRender(controlList);
    ingListView.addHandlerClipboard(controlClipboard);
+   ingListView.addHandlerRemoveAll(controlRemoveAllIngsFromList);
 
    recipeView.addHandlerRender(controlRecipe);
    recipeView.addHandlerServings(controlServings);
