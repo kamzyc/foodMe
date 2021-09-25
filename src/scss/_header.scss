@@ -7,8 +7,22 @@
 
    user-select: none;
 
-   & > span {
-      color: var(--clr-primary-400);
+   &__text {
+      & > span {
+         color: var(--clr-primary-400);
+      }
+
+      @include responsive($bp-xxs) {
+         display: none;
+      }
+   }
+
+   &__img {
+      display: none;
+
+      @include responsive($bp-xxs) {
+         display: block;
+      }
    }
 }
 
@@ -165,9 +179,6 @@
    top: 100%;
    right: 0;
    overflow-y: auto;
-   z-index: 10;
-
-   width: calc(var(--width) + 21.6rem);
 
    cursor: default;
    visibility: hidden;
@@ -177,10 +188,14 @@
    border-bottom: var(--border-line);
    border-left: var(--border-line);
    box-shadow: var(--bs-medium);
+
+   .navbar__btn:focus + & {
+      z-index: 2;
+   }
 }
 
 .bookmarks {
-   --width: 10rem;
+   width: 30rem;
 
    transition: visibility var(--transition-time), opacity var(--transition-time);
 
@@ -201,7 +216,7 @@
 }
 
 .ing-list {
-   --width: 20rem;
+   width: 40rem;
 
    transition: visibility var(--transition-time), opacity var(--transition-time);
 

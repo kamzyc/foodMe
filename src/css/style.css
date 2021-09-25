@@ -414,8 +414,21 @@ a:visited {
   font-weight: 700;
   user-select: none;
 }
-.logo > span {
+.logo__text > span {
   color: var(--clr-primary-400);
+}
+@media only screen and (max-width: 28.125em) {
+  .logo__text {
+    display: none;
+  }
+}
+.logo__img {
+  display: none;
+}
+@media only screen and (max-width: 28.125em) {
+  .logo__img {
+    display: block;
+  }
 }
 
 .search {
@@ -529,8 +542,6 @@ a:visited {
   top: 100%;
   right: 0;
   overflow-y: auto;
-  z-index: 10;
-  width: calc(var(--width) + 21.6rem);
   cursor: default;
   visibility: hidden;
   opacity: 0;
@@ -539,9 +550,13 @@ a:visited {
   border-left: var(--border-line);
   box-shadow: var(--bs-medium);
 }
+.navbar__btn:focus + .bookmarks,
+.navbar__btn:focus + .ing-list {
+  z-index: 2;
+}
 
 .bookmarks {
-  --width: 10rem;
+  width: 30rem;
   transition: visibility var(--transition-time), opacity var(--transition-time);
 }
 .navbar__btn:hover + .bookmarks, .navbar__btn:focus + .bookmarks {
@@ -557,7 +572,7 @@ a:visited {
 }
 
 .ing-list {
-  --width: 20rem;
+  width: 40rem;
   transition: visibility var(--transition-time), opacity var(--transition-time);
 }
 .navbar__btn:hover + .ing-list, .navbar__btn:focus + .ing-list {
