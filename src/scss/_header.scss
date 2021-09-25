@@ -84,6 +84,8 @@
 }
 
 .navbar {
+   position: relative;
+
    display: flex;
    flex-direction: row;
    justify-content: center;
@@ -161,8 +163,9 @@
 .ing-list {
    position: absolute;
    top: 100%;
+   right: 0;
    overflow-y: auto;
-   z-index: inherit;
+   z-index: 10;
 
    width: calc(var(--width) + 21.6rem);
 
@@ -174,21 +177,18 @@
    border-bottom: var(--border-line);
    border-left: var(--border-line);
    box-shadow: var(--bs-medium);
-
-   &:hover,
-   .navbar__btn:hover &,
-   .navbar__btn:focus & {
-      visibility: visible;
-      opacity: 1;
-   }
 }
 
 .bookmarks {
    --width: 10rem;
 
-   left: calc(-1 * var(--width));
-
    transition: visibility var(--transition-time), opacity var(--transition-time);
+
+   .navbar__btn:hover + &,
+   .navbar__btn:focus + & {
+      visibility: visible;
+      opacity: 1;
+   }
 
    &__list {
       display: flex;
@@ -203,9 +203,13 @@
 .ing-list {
    --width: 20rem;
 
-   right: 0;
-
    transition: visibility var(--transition-time), opacity var(--transition-time);
+
+   .navbar__btn:hover + &,
+   .navbar__btn:focus + & {
+      visibility: visible;
+      opacity: 1;
+   }
 
    &__list {
       display: flex;
