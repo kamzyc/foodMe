@@ -537,7 +537,8 @@ a:visited {
 }
 
 .bookmarks,
-.ing-list {
+.ing-list,
+.calendar {
   position: absolute;
   top: 100%;
   right: 0;
@@ -549,19 +550,24 @@ a:visited {
   border-bottom: var(--border-line);
   border-left: var(--border-line);
   box-shadow: var(--bs-medium);
+  transition: visibility var(--transition-time), opacity var(--transition-time);
+}
+.navbar__btn:hover + .bookmarks, .navbar__btn:focus + .bookmarks,
+.navbar__btn:hover + .ing-list,
+.navbar__btn:focus + .ing-list,
+.navbar__btn:hover + .calendar,
+.navbar__btn:focus + .calendar {
+  visibility: visible;
+  opacity: 1;
 }
 .navbar__btn:focus + .bookmarks,
-.navbar__btn:focus + .ing-list {
+.navbar__btn:focus + .ing-list,
+.navbar__btn:focus + .calendar {
   z-index: 2;
 }
 
 .bookmarks {
   width: 30rem;
-  transition: visibility var(--transition-time), opacity var(--transition-time);
-}
-.navbar__btn:hover + .bookmarks, .navbar__btn:focus + .bookmarks {
-  visibility: visible;
-  opacity: 1;
 }
 .bookmarks__list {
   display: flex;
@@ -573,11 +579,6 @@ a:visited {
 
 .ing-list {
   width: 40rem;
-  transition: visibility var(--transition-time), opacity var(--transition-time);
-}
-.navbar__btn:hover + .ing-list, .navbar__btn:focus + .ing-list {
-  visibility: visible;
-  opacity: 1;
 }
 .ing-list__list {
   display: flex;
@@ -617,6 +618,10 @@ a:visited {
 }
 .ing-list::-webkit-scrollbar-thumb:hover {
   background-color: var(--clr-primary-300);
+}
+
+.calendar {
+  width: 40rem;
 }
 
 .title {

@@ -6,6 +6,7 @@ import searchView from "./views/searchView.js";
 import paginationView from "./views/paginationView.js";
 import bookmarksView from "./views/bookmarksView.js";
 import ingListView from "./views/ingListView.js";
+import calendarView from "./views/calendarView.js";
 import addRecipeView from "./views/addRecipeView.js";
 import alertView from "./views/alertView.js";
 
@@ -156,6 +157,13 @@ const controlClipboard = async () => {
 //////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////
+//^ CALENDAR CONTROLLER
+
+const controlCalendar = () => {};
+
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
 //^ ADD RECIPE CONTROLLER
 const controlAddIng = () => {
    model.state.addRecipe.numIngredients++;
@@ -219,6 +227,8 @@ const controlAddRecipe = async (newRecipe) => {
    ingListView.addHandlerRender(controlList);
    ingListView.addHandlerClipboard(controlClipboard);
    ingListView.addHandlerRemoveAll(controlRemoveAllIngsFromList);
+
+   calendarView.addHandlerRender(controlCalendar);
 
    recipeView.addHandlerRender(controlRecipe);
    recipeView.addHandlerServings(controlServings);
