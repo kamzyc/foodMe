@@ -552,6 +552,12 @@ a:visited {
   box-shadow: var(--bs-medium);
   transition: visibility var(--transition-time), opacity var(--transition-time);
 }
+.bookmarks__list,
+.ing-list__list,
+.calendar__list {
+  display: flex;
+  flex-direction: column;
+}
 .navbar__btn:hover + .bookmarks, .navbar__btn:focus + .bookmarks,
 .navbar__btn:hover + .ing-list,
 .navbar__btn:focus + .ing-list,
@@ -569,10 +575,6 @@ a:visited {
 .bookmarks {
   width: 30rem;
 }
-.bookmarks__list {
-  display: flex;
-  flex-direction: column;
-}
 .bookmarks__list .preview:last-child .preview__card {
   border-bottom: none;
 }
@@ -581,8 +583,6 @@ a:visited {
   width: 40rem;
 }
 .ing-list__list {
-  display: flex;
-  flex-direction: column;
   gap: 0.8rem;
 }
 .ing-list__list > li {
@@ -622,6 +622,14 @@ a:visited {
 
 .calendar {
   width: 40rem;
+}
+.calendar__list {
+  padding: 0 1rem;
+}
+.calendar__day-name {
+  color: var(--clr-light-300);
+  font-size: 4rem;
+  font-weight: 800;
 }
 
 .title {

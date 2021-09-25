@@ -192,6 +192,11 @@
 
    transition: visibility var(--transition-time), opacity var(--transition-time);
 
+   &__list {
+      display: flex;
+      flex-direction: column;
+   }
+
    .navbar__btn:hover + &,
    .navbar__btn:focus + & {
       visibility: visible;
@@ -206,11 +211,6 @@
 .bookmarks {
    width: 30rem;
 
-   &__list {
-      display: flex;
-      flex-direction: column;
-   }
-
    &__list .preview:last-child .preview__card {
       border-bottom: none;
    }
@@ -220,8 +220,6 @@
    width: 40rem;
 
    &__list {
-      display: flex;
-      flex-direction: column;
       gap: 0.8rem;
 
       & > li {
@@ -275,4 +273,17 @@
 
 .calendar {
    width: 40rem;
+
+   &__list {
+      padding: 0 1rem;
+   }
+
+   &__day {
+   }
+
+   &__day-name {
+      color: var(--clr-light-300);
+      font-size: 4rem;
+      font-weight: 800;
+   }
 }
