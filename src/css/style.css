@@ -217,6 +217,9 @@ button {
 .recipe {
   grid-column: 2/-1;
   grid-row: 2/-1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @media only screen and (max-width: 56.25em) {
   .recipe {
@@ -754,6 +757,7 @@ a:visited {
 .results {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
   width: 100%;
 }
