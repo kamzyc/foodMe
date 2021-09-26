@@ -16,6 +16,15 @@ export const state = {
       numIngredients: 1,
    },
    list: [],
+   calendar: [
+      { name: "Monday", recipe: {} },
+      { name: "Tuesday", recipe: {} },
+      { name: "Wednseday", recipe: {} },
+      { name: "Thursday", recipe: {} },
+      { name: "Friday", recipe: {} },
+      { name: "Saturday", recipe: {} },
+      { name: "Sunday", recipe: {} },
+   ],
 };
 
 //////////////////////////////////////////////////////////////////////

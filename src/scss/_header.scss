@@ -174,11 +174,13 @@
 }
 
 .bookmarks,
-.ing-list {
+.ing-list,
+.calendar {
    position: absolute;
    top: 100%;
    right: 0;
    overflow-y: auto;
+   z-index: 1;
 
    cursor: default;
    visibility: hidden;
@@ -189,6 +191,19 @@
    border-left: var(--border-line);
    box-shadow: var(--bs-medium);
 
+   transition: visibility var(--transition-time), opacity var(--transition-time);
+
+   &__list {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .navbar__btn:hover + &,
+   .navbar__btn:focus + & {
+      visibility: visible;
+      opacity: 1;
+   }
+
    .navbar__btn:focus + & {
       z-index: 2;
    }
@@ -197,19 +212,6 @@
 .bookmarks {
    width: 30rem;
 
-   transition: visibility var(--transition-time), opacity var(--transition-time);
-
-   .navbar__btn:hover + &,
-   .navbar__btn:focus + & {
-      visibility: visible;
-      opacity: 1;
-   }
-
-   &__list {
-      display: flex;
-      flex-direction: column;
-   }
-
    &__list .preview:last-child .preview__card {
       border-bottom: none;
    }
@@ -217,32 +219,18 @@
 
 .ing-list {
    width: 40rem;
-
-   transition: visibility var(--transition-time), opacity var(--transition-time);
-
-   .navbar__btn:hover + &,
-   .navbar__btn:focus + & {
-      visibility: visible;
-      opacity: 1;
-   }
+   background-color: var(--clr-light-300);
 
    &__list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
+      gap: 0.1rem;
 
-      & > li {
-         font-size: 1.4rem !important;
-         text-align: left;
-         padding: 1rem;
-
-         span {
-            font-size: 1.6rem !important;
-         }
+      & > * {
+         padding: 1.2rem 1rem;
+         background-color: var(--clr-light-100);
       }
 
-      & > *:not(:last-child) {
-         border-bottom: 1px solid var(--clr-light-300);
+      & > .message {
+         padding: var(--main-padding);
       }
    }
 
@@ -254,9 +242,6 @@
       display: flex;
       align-items: center;
       gap: 1.4rem;
-
-      margin-bottom: 0.5em;
-      padding: 0 1.4rem;
    }
 
    &__clipboard-btn,
@@ -277,5 +262,31 @@
             background-color: var(--clr-primary-300);
          }
       }
+   }
+}
+
+.calendar {
+   width: 40rem;
+   background-color: var(--clr-light-300);
+
+   &__list {
+      gap: 0.1rem;
+
+      & > * {
+         padding: 1.2rem 1rem;
+         background-color: var(--clr-light-100);
+      }
+   }
+   &__day {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+   &__day-name {
+      color: var(--clr-light-300);
+      font-size: 3rem;
+      font-weight: 800;
    }
 }
