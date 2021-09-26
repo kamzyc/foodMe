@@ -23,28 +23,12 @@ class CalendarView extends View {
    }
 
    _createDayMarkup(day) {
-      console.log(day);
       return `
       <li class="calendar__day">
-         <p class="calendar__day-name">${Object.keys(day)}</p>
-         <button class="calendar__add-btn  btn btn--very-small">
-         <svg class="btn__icon" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-         </svg>
-      </button>
+      <p class="calendar__day-name">${day.name}</p>
+         ${day.recipe === {} ? "Set" : "EMPTY"}
+    
       </li>
-      `;
-   }
-
-   _createButtonMarkup() {
-      return `
-      <button class="btn btn--very-small">
-         <svg class="btn__icon" viewBox="0 0 24 24">
-            <path d="M0 0h24v24H0z" fill="none" />
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-         </svg>
-      </button>
       `;
    }
 

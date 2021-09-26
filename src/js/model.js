@@ -17,13 +17,13 @@ export const state = {
    },
    list: [],
    calendar: [
-      { monday: {} },
-      { tuesday: {} },
-      { wednesday: {} },
-      { thursday: {} },
-      { friday: {} },
-      { saturday: {} },
-      { sunday: {} },
+      { name: "Monday", recipe: {} },
+      { name: "Tuesday", recipe: {} },
+      { name: "Wednseday", recipe: {} },
+      { name: "Thursday", recipe: {} },
+      { name: "Friday", recipe: {} },
+      { name: "Saturday", recipe: {} },
+      { name: "Sunday", recipe: {} },
    ],
 };
 

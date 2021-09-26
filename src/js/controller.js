@@ -225,12 +225,11 @@ const controlAddRecipe = async (newRecipe) => {
 //////////////////////////////////////////////////////////////////////
 (function () {
    bookmarksView.addHandlerRender(controlBookmarks);
+   calendarView.addHandlerRender(controlCalendar);
 
    ingListView.addHandlerRender(controlList);
    ingListView.addHandlerClipboard(controlClipboard);
    ingListView.addHandlerRemoveAll(controlRemoveAllIngsFromList);
-
-   calendarView.addHandlerRender(controlCalendar);
 
    recipeView.addHandlerRender(controlRecipe);
    recipeView.addHandlerServings(controlServings);
