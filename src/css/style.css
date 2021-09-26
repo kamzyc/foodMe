@@ -626,6 +626,13 @@ a:visited {
 .calendar__list {
   padding: 0 1rem;
 }
+.calendar__day {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
 .calendar__day-name {
   color: var(--clr-light-300);
   font-size: 4rem;

@@ -275,10 +275,13 @@
    width: 40rem;
 
    &__list {
-      padding: 0 1rem;
    }
 
    &__day {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
    }
 
    &__day-name {

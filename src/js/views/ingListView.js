@@ -70,6 +70,7 @@ class IngListView extends View {
          </div>
          `;
       }
+      return "";
    }
 
    _createClipboardButtonMarkup() {
