@@ -41,6 +41,9 @@ const controlRecipe = async () => {
       // update list view
       ingListView.update(model.state.list);
 
+      // update calendar view
+      calendarView.update(model.state.calendar);
+
       // load recipe from api
       await model.loadRecipe(id);
 
@@ -164,7 +167,7 @@ const controlCalendar = () => {
 
 controlCalendarDay = (day) => {
    model.updateCalendar(day);
-   calendarView.update(model.state.calendar);
+   calendarView.render(model.state.calendar);
 };
 
 //////////////////////////////////////////////////////////////////////

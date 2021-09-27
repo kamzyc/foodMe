@@ -37,21 +37,22 @@ class CalendarView extends View {
       return markup;
    }
 
-   // _createMarkup() {
-   //    return this._data
-   //       .map((result) => previewView.render(result, true))
-   //       .join("");
-   // }
-
    _createDayMarkup(day, i) {
       return `
       <li class="calendar__day">
-         <span class="calendar__day-name">${day.name}</span>
-            <button class="btn btn--small calendar__btn" data-day="${i}">
-               ${this._createIconMarkup(day.recipe)}
-            </button>
+         ${this._createDayNameMarkup(day)}
+         <button class="btn btn--very-small calendar__btn" data-day="${i}">
+            ${this._createIconMarkup(day.recipe)}
+         </button>
+         ${this._createPreviewMarkup(day.recipe)}
       </li>
       `;
+   }
+
+   _createDayNameMarkup(day) {
+      if (isEmptyObject(day.recipe))
+         return `<span class="calendar__day-name">${day.name}</span>`;
+      return "";
    }
 
    _createIconMarkup(recipe) {
@@ -66,6 +67,11 @@ class CalendarView extends View {
          <path d="M0 0h24v24H0z" fill="none" />
          <path d="M19 13H5v-2h14v2z" />
       </svg>`;
+   }
+
+   _createPreviewMarkup(recipe) {
+      if (!isEmptyObject(recipe)) return previewView.render(recipe, true);
+      return "";
    }
 }
 
