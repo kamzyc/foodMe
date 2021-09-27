@@ -51,3 +51,11 @@ export const setMaxHeight = (element) => {
       value > 1000 ? value - 100 + "px" : value + "px"
    }`;
 };
+
+export const isEmptyObject = (object) => {
+   return (
+      object &&
+      Object.keys(object).length === 0 &&
+      object.constructor === Object
+   );
+};

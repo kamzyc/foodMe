@@ -3,7 +3,7 @@
 import View from "../view.js";
 import previewView from "./previewView.js";
 
-import { setMaxHeight } from "../utilities.js";
+import { setMaxHeight, isEmptyObject } from "../utilities.js";
 
 class CalendarView extends View {
    _container = document.querySelector(".calendar__list");
@@ -14,41 +14,65 @@ class CalendarView extends View {
       window.addEventListener("load", handler);
    }
 
+   addHandlerAddRecipe(handler) {
+      this._container.addEventListener("pointerdown", function (e) {
+         e.preventDefault();
+         const btn = e.target.closest(".calendar__btn");
+         if (!btn) return;
+
+         const { day } = btn.dataset;
+         handler(+day);
+      });
+   }
+
    resize() {
       setMaxHeight(this._container.parentNode);
    }
 
    _createMarkup() {
-      return `${this._data.map(this._createDayMarkup).join("")}`;
+      const markup = `${this._data
+         .map(this._createDayMarkup.bind(this))
+         .join("")}`;
+
+      return markup;
    }
 
-   _createDayMarkup(day) {
+   _createDayMarkup(day, i) {
       return `
       <li class="calendar__day">
-      <p class="calendar__day-name">${day.name}</p>
-         ${day.recipe === {} ? "Set" : "EMPTY"}
-    
+         ${this._createDayNameMarkup(day)}
+         <button class="btn btn--very-small calendar__btn" data-day="${i}">
+            ${this._createIconMarkup(day.recipe)}
+         </button>
+         ${this._createPreviewMarkup(day.recipe)}
       </li>
       `;
    }
 
-   // _createButtonMarkup(day) {
-   //    return `
-   //       <button class="btn btn--small">
-   //          ${
-   //             day
-   //                ? `<svg class="btn__icon" viewBox="0 0 24 24">
-   //                      <path d="M0 0h24v24H0z" fill="none" />
-   //                      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-   //                   </svg>`
-   //                : `<svg class="btn__icon" viewBox="0 0 24 24">
-   //                      <path d="M0 0h24v24H0z" fill="none" />
-   //                      <path d="M19 13H5v-2h14v2z" />
-   //                   </svg>`
-   //          }
-   //       </button>
-   //       `;
-   // }
+   _createDayNameMarkup(day) {
+      if (isEmptyObject(day.recipe))
+         return `<span class="calendar__day-name">${day.name}</span>`;
+      return "";
+   }
+
+   _createIconMarkup(recipe) {
+      if (isEmptyObject(recipe))
+         return `
+         <svg class="btn__icon" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+         </svg>`;
+      return `
+      <svg class="btn__icon" viewBox="0 0 24 24">
+         <path d="M0 0h24v24H0z" fill="none" />
+         <path d="M19 13H5v-2h14v2z" />
+      </svg>`;
+   }
+
+   _createPreviewMarkup(recipe) {
+      if (!isEmptyObject(recipe)) return previewView.render(recipe, true);
+      return "";
+   }
 }
 
 export default new CalendarView();
