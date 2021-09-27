@@ -48,6 +48,11 @@ export const loadRecipe = async (id) => {
       if (state.bookmarks.some((bookmark) => bookmark.id === id))
          state.recipe.bookmarked = true;
       else state.recipe.bookmarked = false;
+
+      //update inCalendar property
+      if (state.calendar.some((day) => day.recipe.id === id))
+         state.recipe.inCalendar = true;
+      else state.recipe.inCalendar = false;
    } catch (err) {
       throw err;
    }
@@ -204,10 +209,11 @@ export const clipboardIngList = async () => {
 //////////////////////////////////////////////////////////////////////
 //^ CALENDAR DATA
 export const updateCalendar = (day) => {
-   const recipe = state.calendar[day].recipe;
-   if (isEmptyObject(recipe)) {
+   if (isEmptyObject(state.calendar[day].recipe)) {
+      state.recipe.inCalendar = true;
       state.calendar[day].recipe = state.recipe;
    } else {
+      state.recipe.inCalendar = false;
       state.calendar[day].recipe = {};
    }
 };

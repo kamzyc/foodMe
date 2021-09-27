@@ -17,7 +17,6 @@ class CalendarView extends View {
    addHandlerAddRecipe(handler) {
       this._container.addEventListener("click", function (e) {
          const btn = e.target.closest(".calendar__btn");
-
          if (!btn) return;
 
          const { day } = btn.dataset;
