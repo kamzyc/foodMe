@@ -16,8 +16,9 @@ class IngListView extends View {
 
    addHandlerRemoveIng(handler) {
       this._container.addEventListener(
-         "click",
+         "pointerdown",
          function (e) {
+            e.preventDefault();
             const btn = e.target.closest(".ing-list__remove-btn");
 
             if (!btn) return;

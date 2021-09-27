@@ -15,7 +15,8 @@ class CalendarView extends View {
    }
 
    addHandlerAddRecipe(handler) {
-      this._container.addEventListener("click", function (e) {
+      this._container.addEventListener("pointerdown", function (e) {
+         e.preventDefault();
          const btn = e.target.closest(".calendar__btn");
          if (!btn) return;
 
