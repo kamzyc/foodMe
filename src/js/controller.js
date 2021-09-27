@@ -166,7 +166,6 @@ const controlCalendar = () => {
 };
 
 controlCalendarDay = (day) => {
-   // calendarView.setFocus();
    model.updateCalendar(day);
    calendarView.render(model.state.calendar);
 };
