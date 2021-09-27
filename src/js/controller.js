@@ -158,9 +158,13 @@ const controlClipboard = async () => {
 
 //////////////////////////////////////////////////////////////////////
 //^ CALENDAR CONTROLLER
-
 const controlCalendar = () => {
    calendarView.render(model.state.calendar);
+};
+
+controlCalendarDay = (day) => {
+   model.updateCalendar(day);
+   calendarView.update(model.state.calendar);
 };
 
 //////////////////////////////////////////////////////////////////////
@@ -241,6 +245,8 @@ const controlAddRecipe = async (newRecipe) => {
    paginationView.addHandlerClick(controlPagination);
 
    ingListView.addHandlerRemoveIng(controlRemoveIngFromList);
+
+   calendarView.addHandlerAddRecipe(controlCalendarDay);
 
    addRecipeView.addHandlerUpload(controlAddRecipe);
    addRecipeView.addHandlerAddIng(controlAddIng);

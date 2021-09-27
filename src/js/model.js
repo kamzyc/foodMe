@@ -1,7 +1,7 @@
 "use stict";
 
 import { API_URL, API_KEY, REC_PER_SIDE, TIMEOUT_SEC } from "./config";
-import { createRecipeObject, timeout } from "./utilities";
+import { createRecipeObject, timeout, isEmptyObject } from "./utilities";
 
 export const state = {
    recipe: {},
@@ -17,13 +17,13 @@ export const state = {
    },
    list: [],
    calendar: [
-      { name: "Monday", recipe: {} },
-      { name: "Tuesday", recipe: {} },
-      { name: "Wednseday", recipe: {} },
-      { name: "Thursday", recipe: {} },
-      { name: "Friday", recipe: {} },
-      { name: "Saturday", recipe: {} },
-      { name: "Sunday", recipe: {} },
+      { name: "monday", recipe: {} },
+      { name: "tuesday", recipe: {} },
+      { name: "wednseday", recipe: {} },
+      { name: "thursday", recipe: {} },
+      { name: "friday", recipe: {} },
+      { name: "saturday", recipe: {} },
+      { name: "sunday", recipe: {} },
    ],
 };
 
@@ -105,9 +105,9 @@ const storeBookmarks = () => {
    localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
 };
 
-const clearBookmarks = function () {
-   localStorage.clear("bookmarks");
-};
+// const clearBookmarks = function () {
+//    localStorage.clear("bookmarks");
+// };
 
 export const addBookmark = (recipe) => {
    // add recipe to bookmarks []
@@ -202,6 +202,19 @@ export const clipboardIngList = async () => {
 //////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////
+//^ CALENDAR DATA
+export const updateCalendar = (day) => {
+   const recipe = state.calendar[day].recipe;
+   if (isEmptyObject(recipe)) {
+      state.calendar[day].recipe = state.recipe;
+   } else {
+      state.calendar[day].recipe = {};
+   }
+};
+
+//////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////
 //^ UPLOAD DATA
 export const uploadRecipe = async (newRecipe) => {
    try {
@@ -238,8 +251,6 @@ export const uploadRecipe = async (newRecipe) => {
          }),
          timeout(TIMEOUT_SEC),
       ]);
-
-      console.log(res);
 
       const data = await res.json();
       const { recipe } = data.data;
