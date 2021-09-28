@@ -27,10 +27,6 @@ const controlRecipe = async () => {
       // render spinner
       recipeView.renderSpinner();
 
-      // update max-height
-      ingListView.resize();
-      bookmarksView.resize();
-
       // update results view
       resultsView.update(model.loadPageSearchResults());
 
@@ -53,6 +49,7 @@ const controlRecipe = async () => {
       // update max-height
       ingListView.resize();
       bookmarksView.resize();
+      calendarView.resize();
    } catch (err) {
       recipeView.renderError();
    }
@@ -162,6 +159,7 @@ const controlClipboard = async () => {
 //////////////////////////////////////////////////////////////////////
 //^ CALENDAR CONTROLLER
 const controlCalendar = () => {
+   calendarView.resize();
    calendarView.render(model.state.calendar);
 };
 
