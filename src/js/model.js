@@ -211,10 +211,10 @@ export const clipboardIngList = async () => {
 export const updateCalendar = (day) => {
    if (isEmptyObject(state.recipe)) return;
    if (isEmptyObject(state.calendar[day].recipe)) {
-      state.recipe.inCalendar = state.calendar[day].name;
+      state.recipe.inCalendar = true;
       state.calendar[day].recipe = state.recipe;
    } else {
-      state.recipe.inCalendar = "";
+      state.recipe.inCalendar = false;
       state.calendar[day].recipe = {};
    }
 };

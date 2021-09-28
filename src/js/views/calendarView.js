@@ -30,18 +30,14 @@ class CalendarView extends View {
    }
 
    _createMarkup() {
-      const markup = `${this._data
-         .map(this._createDayMarkup.bind(this))
-         .join("")}`;
-
-      return markup;
+      return `${this._data.map(this._createDayMarkup.bind(this)).join("")}`;
    }
 
    _createDayMarkup(day, i) {
       return `
       <li class="calendar__day">
          ${this._createDayNameMarkup(day)}
-         <button class="btn btn--very-small calendar__btn" data-day="${i}">
+         <button class="btn btn--small calendar__btn" data-day="${i}">
             ${this._createIconMarkup(day.recipe)}
          </button>
          ${this._createPreviewMarkup(day.recipe)}
@@ -70,7 +66,9 @@ class CalendarView extends View {
    }
 
    _createPreviewMarkup(recipe) {
-      if (!isEmptyObject(recipe)) return previewView.render(recipe, true);
+      if (!isEmptyObject(recipe)) {
+         return previewView.render(recipe, true).replaceAll("li", "div");
+      }
       return "";
    }
 }
