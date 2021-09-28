@@ -94,7 +94,7 @@ class IngListView extends View {
       const quantityMarkup = ingredient.quantity
          ? `<div class="ingredients__item-quantity">${new Fraction(
               ingredient.quantity
-           ).toString()}</div>`
+           ).toFraction(true)}</div>`
          : "";
       const unitMarkup = ingredient.unit
          ? `<div class="ingredients__item-unit">${ingredient.unit}</div>`
