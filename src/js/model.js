@@ -217,6 +217,11 @@ export const updateCalendar = (day) => {
       state.recipe.inCalendar = false;
       state.calendar[day].recipe = {};
    }
+   storeCalendar();
+};
+
+const storeCalendar = () => {
+   localStorage.setItem("calendar", JSON.stringify(state.calendar));
 };
 
 //////////////////////////////////////////////////////////////////////
@@ -275,7 +280,7 @@ export const uploadRecipe = async (newRecipe) => {
 
 (function () {
    let storage;
-   ["bookmarks", "list"].forEach((property) => {
+   ["bookmarks", "list", "calendar"].forEach((property) => {
       storage = localStorage.getItem(property);
       if (storage) state[property] = JSON.parse(storage);
    });

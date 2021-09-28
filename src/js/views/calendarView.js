@@ -67,7 +67,7 @@ class CalendarView extends View {
 
    _createPreviewMarkup(recipe) {
       if (!isEmptyObject(recipe)) {
-         return previewView.render(recipe, true).replaceAll("li", "div");
+         return previewView.render(recipe, true).replaceAll("<li", "<div");
       }
       return "";
    }
