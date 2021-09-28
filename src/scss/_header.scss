@@ -182,6 +182,8 @@
    overflow-y: auto;
    z-index: 1;
 
+   width: 40rem;
+
    cursor: default;
    visibility: hidden;
    opacity: 0;
@@ -210,15 +212,12 @@
 }
 
 .bookmarks {
-   width: 30rem;
-
    &__list .preview:last-child .preview__card {
       border-bottom: none;
    }
 }
 
 .ing-list {
-   width: 40rem;
    background-color: var(--clr-light-300);
 
    &__list {
@@ -266,7 +265,6 @@
 }
 
 .calendar {
-   width: 40rem;
    background-color: var(--clr-light-300);
 
    &__list {

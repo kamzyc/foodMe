@@ -3,7 +3,7 @@
 import View from "../view.js";
 
 class PreviewView extends View {
-   _container = undefined;
+   _container = null;
 
    _createMarkup() {
       const id = window.location.hash.slice(1);
@@ -19,6 +19,7 @@ class PreviewView extends View {
                   <img src="${this._data.imageUrl}" alt="${
          this._data.title
       }" class="preview__img" crossOrigin = "anonymous">
+      
                </figure>
             </a>
          </li>`;

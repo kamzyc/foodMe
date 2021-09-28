@@ -49,9 +49,9 @@ class CalendarView extends View {
       `;
    }
 
-   _createDayNameMarkup(day) {
-      if (isEmptyObject(day.recipe))
-         return `<span class="calendar__day-name">${day.name}</span>`;
+   _createDayNameMarkup({ name, recipe }) {
+      if (isEmptyObject(recipe))
+         return `<span class="calendar__day-name">${name}</span>`;
       return "";
    }
 

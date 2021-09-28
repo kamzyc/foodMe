@@ -543,6 +543,7 @@ a:visited {
   right: 0;
   overflow-y: auto;
   z-index: 1;
+  width: 40rem;
   cursor: default;
   visibility: hidden;
   opacity: 0;
@@ -572,15 +573,11 @@ a:visited {
   z-index: 2;
 }
 
-.bookmarks {
-  width: 30rem;
-}
 .bookmarks__list .preview:last-child .preview__card {
   border-bottom: none;
 }
 
 .ing-list {
-  width: 40rem;
   background-color: var(--clr-light-300);
 }
 .ing-list__list {
@@ -616,7 +613,6 @@ a:visited {
 }
 
 .calendar {
-  width: 40rem;
   background-color: var(--clr-light-300);
 }
 .calendar__list {
