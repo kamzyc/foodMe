@@ -7,6 +7,10 @@ import { ALERT_CLOSE_SEC, ALERT_STATUS } from "../config.js";
 class AlertView extends View {
    _container = document.querySelector(".alert");
 
+   /**
+    * Toogle alert message of given values
+    * @param {Object} data Object of alert
+    */
    toggle(data) {
       this.render(data);
       this._setColor();
@@ -17,6 +21,9 @@ class AlertView extends View {
       }, ALERT_CLOSE_SEC * 1000);
    }
 
+   /**
+    * Set color of alert
+    */
    _setColor() {
       this._container.classList.remove(
          `alert--${this._data.color === "red" ? "green" : "red"}`
@@ -24,12 +31,20 @@ class AlertView extends View {
       this._container.classList.add(`alert--${this._data.color}`);
    }
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       return `
-      ${this._createIcon()}
-      <p class="alert__text">${this._data.data}</p>`;
+         ${this._createIcon()}
+         <p class="alert__text">${this._data.data}</p>`;
    }
 
+   /**
+    * Create HTML markup of icon
+    * @returns {string} HTML markup
+    */
    _createIcon() {
       // ing remove
       if (this._data.data === ALERT_STATUS.ingList.remove.data)

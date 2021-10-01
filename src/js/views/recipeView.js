@@ -161,7 +161,7 @@ class RecipieView extends View {
 
    /**
     * Create HTML markup for one ingredient
-    * @param {Object[]} ingredient Object of ingredient {quantity, unit, description}
+    * @param {Object} ingredient Object of ingredient {quantity, unit, description}
     * @returns {string} HTML markup of ingredient
     */
    _createIngredientMarkup(ingredient) {

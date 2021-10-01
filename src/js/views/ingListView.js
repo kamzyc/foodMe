@@ -10,10 +10,18 @@ class IngListView extends View {
    _error =
       "No ingredients added yet! Pick your favourite recipe and save ingredients list ;)";
 
+   /**
+    * Resposible for load ingredients list
+    * @param {Function} handler Function to be called when load event happens
+    */
    addHandlerRender(handler) {
       window.addEventListener("load", handler);
    }
 
+   /**
+    * Responsible for removing ingredient from ingredients list
+    * @param {Function} handler Function to be called when pointerdown events happens
+    */
    addHandlerRemoveIng(handler) {
       this._container.addEventListener(
          "pointerdown",
@@ -33,6 +41,10 @@ class IngListView extends View {
       );
    }
 
+   /**
+    * Responsible for clipboard feature
+    * @param {Function} handler Function to be called when click events happens
+    */
    addHandlerClipboard(handler) {
       this._container.addEventListener("click", function (e) {
          const btn = e.target.closest(".ing-list__clipboard-btn");
@@ -42,6 +54,10 @@ class IngListView extends View {
       });
    }
 
+   /**
+    * Responsible for removing all ingredients from ingredients list
+    * @param {Function} handler Function to be called when click events happens
+    */
    addHandlerRemoveAll(handler) {
       this._container.addEventListener("click", function (e) {
          const btn = e.target.closest(".ing-list__remove-all-btn");
@@ -51,10 +67,17 @@ class IngListView extends View {
       });
    }
 
+   /**
+    * Set max-height property of container
+    */
    resize() {
       setMaxHeight(this._container.parentNode);
    }
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       const ingredients = `${this._data
          .map(this._createIngredientMarkup)
@@ -63,6 +86,10 @@ class IngListView extends View {
       return `${ingredients} ${this._createButtonsMarkup()}`;
    }
 
+   /**
+    * Create HTML markup for buttons
+    * @returns {string} HTML markup
+    */
    _createButtonsMarkup() {
       if (this._data.length) {
          return `
@@ -74,6 +101,10 @@ class IngListView extends View {
       return "";
    }
 
+   /**
+    * Create HTML markup for clipboard button
+    * @returns {string} HTML markup
+    */
    _createClipboardButtonMarkup() {
       return `
       <button class="btn ing-list__clipboard-btn">
@@ -82,6 +113,10 @@ class IngListView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup for remove all ingredients button
+    * @returns {string} HTML markup
+    */
    _createRemoveAllIngredientsButtonMarkup() {
       return `
       <button class="btn ing-list__remove-all-btn">
@@ -90,6 +125,11 @@ class IngListView extends View {
    `;
    }
 
+   /**
+    * Create HTML markup for one ingredient
+    * @param {Object} ingredient Object of ingredient {quantity, unit, description}
+    * @returns {string} HTML markup of ingredient
+    */
    _createIngredientMarkup(ingredient) {
       const quantityMarkup = ingredient.quantity
          ? `<div class="ingredients__item-quantity">${new Fraction(

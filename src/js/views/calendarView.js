@@ -10,10 +10,18 @@ class CalendarView extends View {
 
    _error = "";
 
+   /**
+    * Responsible for load calendar
+    * @param {Function} handler Function to be called when load events happens
+    */
    addHandlerRender(handler) {
       window.addEventListener("load", handler);
    }
 
+   /**
+    * Responsible for adding recipe into calendar
+    * @param {Function} handler Function to be called when pointerdown events happens
+    */
    addHandlerAddRecipe(handler) {
       this._container.addEventListener("pointerdown", function (e) {
          e.preventDefault();
@@ -25,14 +33,27 @@ class CalendarView extends View {
       });
    }
 
+   /**
+    * Set max-height property of container
+    */
    resize() {
       setMaxHeight(this._container.parentNode);
    }
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       return `${this._data.map(this._createDayMarkup.bind(this)).join("")}`;
    }
 
+   /**
+    * Create HTML markup for given day
+    * @param {Object} day Object of given day {name, recipe}
+    * @param {number} i Number of given day
+    * @returns
+    */
    _createDayMarkup(day, i) {
       return `
       <li class="calendar__day">
@@ -45,12 +66,21 @@ class CalendarView extends View {
       `;
    }
 
-   _createDayNameMarkup({ name, recipe }) {
-      if (isEmptyObject(recipe))
-         return `<span class="calendar__day-name">${name}</span>`;
+   /**
+    * Create HTML markup for given day name
+    * @param {Object} day Object of given day {name, recipe}
+    * @returns {string} HTML markup
+    */
+   _createDayNameMarkup(day) {
+      if (isEmptyObject(day.recipe))
+         return `<span class="calendar__day-name">${day.name}</span>`;
       return "";
    }
 
+   /**
+    * Create HTML markup for icon
+    * @returns {string} HTML markup
+    */
    _createIconMarkup(recipe) {
       if (isEmptyObject(recipe))
          return `
@@ -65,6 +95,10 @@ class CalendarView extends View {
       </svg>`;
    }
 
+   /**
+    * Create HTML markup for one preview
+    * @returns {string} HTML markup
+    */
    _createPreviewMarkup(recipe) {
       if (!isEmptyObject(recipe)) {
          return previewView.render(recipe, true).replaceAll("<li", "<div");

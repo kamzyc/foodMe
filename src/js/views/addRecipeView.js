@@ -13,12 +13,19 @@ class AddRecipeView extends View {
    _ingContainer = document.querySelector(".new-recipe__ing-area");
    _btnAddIng = document.querySelector(".new-recipe__ing-add-btn");
 
+   /**
+    * Create AddRecipeView Object append events to show/hide add new recipe window
+    */
    constructor() {
       super();
       this._addHandlerShowWindow();
       this._addHandlerHideWindow();
    }
 
+   /**
+    * Responsible for uploading new recipe into API
+    * @param {Function} handler Function to be called when submit events happens
+    */
    addHandlerUpload(handler) {
       this._container.addEventListener("submit", function (e) {
          e.preventDefault();
@@ -28,25 +35,42 @@ class AddRecipeView extends View {
       });
    }
 
+   /**
+    * Toggle add new recipe window
+    */
    toggleWindow() {
       this._overlay.classList.toggle("hidden");
       this._window.classList.toggle("hidden");
    }
 
+   /**
+    * Responsible to show add new recipe window
+    */
    _addHandlerShowWindow() {
       this._btnOpen.addEventListener("click", this.toggleWindow.bind(this));
    }
 
+   /**
+    * Responsible to show hide new recipe window
+    */
    _addHandlerHideWindow() {
       [this._btnClose, this._overlay].forEach((element) =>
          element.addEventListener("click", this.toggleWindow.bind(this))
       );
    }
 
+   /**
+    * Responsible for adding new ingredient field
+    * @param {Function} handler Function to be called when click events happens
+    */
    addHandlerAddIng(handler) {
       this._btnAddIng.addEventListener("click", handler);
    }
 
+   /**
+    * Resposible for removinn ingredient field
+    * @param {Function} handler Function to be called when click events happens
+    */
    addHandlerRemoveIng(handler) {
       this._ingContainer.addEventListener("click", function (e) {
          const btn = e.target.closest(".new-recipe__ing-remove-btn");
@@ -58,16 +82,26 @@ class AddRecipeView extends View {
       });
    }
 
+   /**
+    * Resposible for clearing all inputs in add new recipe window
+    */
    addHandlerClearInputs() {
       this._btnOpen.addEventListener("click", this._clearInputs.bind(this));
    }
 
+   /**
+    * Render full add new recipe form in container
+    */
    renderForm() {
       const markup = this._createFormMarkup();
       this._clear();
       this._display(markup);
    }
 
+   /**
+    * Add HTML markup with new ingredient field
+    * @param {number} i Number of ingredient field to add
+    */
    appendIngMarkup(i) {
       this._ingContainer.insertAdjacentHTML(
          "beforeend",
@@ -75,6 +109,9 @@ class AddRecipeView extends View {
       );
    }
 
+   /**
+    * Update all ingredients fields
+    */
    updateIng() {
       const elements = [...this._ingContainer.children];
 
@@ -90,6 +127,9 @@ class AddRecipeView extends View {
       });
    }
 
+   /**
+    * CLear all inputs in add new recipe window
+    */
    _clearInputs() {
       this._container.querySelectorAll("input").forEach((input) => {
          !!input.value && (input.value = "");
@@ -102,6 +142,11 @@ class AddRecipeView extends View {
       this.appendIngMarkup(1);
    }
 
+   /**
+    * Create HTML markup of given ingredinent
+    * @param {number} i Number of ingredient
+    * @returns
+    */
    _createIngMarkup(i) {
       return `
       <div class="new-recipe__ing-field">
@@ -138,6 +183,10 @@ class AddRecipeView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup of add new recipe form
+    * @returns {string} HTML markup
+    */
    _createFormMarkup() {
       return `
          <div class="row row-data">
