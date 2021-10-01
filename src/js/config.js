@@ -59,4 +59,15 @@ export const ALERT_STATUS = {
          color: "red",
       },
    },
+
+   calendar: {
+      add: {
+         data: "day set",
+         color: "green",
+      },
+      remove: {
+         data: "day unset",
+         color: "red",
+      },
+   },
 };

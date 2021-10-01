@@ -16,6 +16,8 @@ import {
    ALERT_STATUS,
 } from "./config.js";
 
+import { isEmptyObject } from "./utilities.js";
+
 //////////////////////////////////////////////////////////////////////
 //^ RECIPE CONTROLLER
 /**
@@ -211,6 +213,12 @@ const controlCalendar = () => {
 const controlCalendarDay = (day) => {
    model.updateCalendar(day);
    calendarView.render(model.state.calendar);
+
+   if (isEmptyObject(model.state.calendar[day].recipe)) {
+      alertView.toggle(ALERT_STATUS.calendar.remove);
+   } else {
+      alertView.toggle(ALERT_STATUS.calendar.add);
+   }
 };
 
 //////////////////////////////////////////////////////////////////////
