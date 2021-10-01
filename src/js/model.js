@@ -29,6 +29,10 @@ export const state = {
 
 //////////////////////////////////////////////////////////////////////
 //^ LOAD DATA
+/**
+ * Fetch recipe data from API and set it in state
+ * @param {string} id ID of recipe
+ */
 export const loadRecipe = async (id) => {
    try {
       const res = await Promise.race([
@@ -58,6 +62,10 @@ export const loadRecipe = async (id) => {
    }
 };
 
+/**
+ * Fetch search recipes data from API and set it in state
+ * @param {string} query Query used in search call
+ */
 export const loadSearchResults = async (query) => {
    try {
       state.search.query = query;
@@ -81,6 +89,11 @@ export const loadSearchResults = async (query) => {
    }
 };
 
+/**
+ * Return part of search results on given page
+ * @param {number} page Number of page with recipes to be returned
+ * @returns {Object[]} Array of recipes on given page
+ */
 export const loadPageSearchResults = (page = state.search.page) => {
    state.search.page = page;
 
@@ -93,6 +106,10 @@ export const loadPageSearchResults = (page = state.search.page) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ RECIPIE
+/**
+ * Update ingredients count in recipe
+ * @param {number} updatedServings Number of servings
+ */
 export const updateServings = (updatedServings) => {
    state.recipe.ingredients.forEach((ingredient) => {
       ingredient.quantity =
@@ -106,14 +123,17 @@ export const updateServings = (updatedServings) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ BOOKMARKS
+/**
+ * Store bookmars in Local Storage
+ */
 const storeBookmarks = () => {
    localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
 };
 
-// const clearBookmarks = function () {
-//    localStorage.clear("bookmarks");
-// };
-
+/**
+ * Add recipe into bookmarks
+ * @param {Object} recipe Recipe which will be added to bookmarks in state
+ */
 export const addBookmark = (recipe) => {
    // add recipe to bookmarks []
    state.bookmarks.push(recipe);
@@ -124,6 +144,10 @@ export const addBookmark = (recipe) => {
    storeBookmarks();
 };
 
+/**
+ * Remove recipe from bookmarks
+ * @param {number} id ID of recipe which will be removed from bookmarks in state
+ */
 export const removeBookmark = (id) => {
    // find index in bookmarks []
    const index = state.bookmarks.findIndex((recipe) => recipe.id === id);
@@ -139,14 +163,16 @@ export const removeBookmark = (id) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ ING LIST
+/**
+ * Store ingredient list in Local Storage
+ */
 const storeIngList = () => {
    localStorage.setItem("list", JSON.stringify(state.list));
 };
 
-const clearIngList = () => {
-   localStorage.clear("list");
-};
-
+/**
+ * Add ingredients from current recipe into ingredient list
+ */
 export const addIngsToList = () => {
    let copy = {};
    let onList = false;
@@ -175,16 +201,26 @@ export const addIngsToList = () => {
    storeIngList();
 };
 
+/**
+ * Remove ingredient from ingredients list
+ * @param {number} i Number of ingredient to be removed from list in state
+ */
 export const removeIngFromList = (i) => {
    state.list.splice(i, 1);
    storeIngList();
 };
 
+/**
+ * Remove all ingredients from ingredients list
+ */
 export const removeAllIngsFromList = () => {
    state.list = [];
    storeIngList();
 };
 
+/**
+ * Clipboard all ingredients from ingredients list
+ */
 export const clipboardIngList = async () => {
    try {
       let text = "";
@@ -208,6 +244,10 @@ export const clipboardIngList = async () => {
 
 //////////////////////////////////////////////////////////////////////
 //^ CALENDAR DATA
+/**
+ * Update given day in calendar
+ * @param {number} day Number of day to be updated in state
+ */
 export const updateCalendar = (day) => {
    if (isEmptyObject(state.calendar[day].recipe)) {
       if (!isEmptyObject(state.recipe)) {
@@ -222,6 +262,9 @@ export const updateCalendar = (day) => {
    storeCalendar();
 };
 
+/**
+ * Store calendar in Local Storage
+ */
 const storeCalendar = () => {
    localStorage.setItem("calendar", JSON.stringify(state.calendar));
 };
@@ -230,6 +273,10 @@ const storeCalendar = () => {
 
 //////////////////////////////////////////////////////////////////////
 //^ UPLOAD DATA
+/**
+ * Upload new recipe into API
+ * @param {Object} newRecipe Recipe Object fetched to API
+ */
 export const uploadRecipe = async (newRecipe) => {
    try {
       const ingredients = [];
@@ -275,7 +322,6 @@ export const uploadRecipe = async (newRecipe) => {
       state.recipe = createRecipeObject(recipe);
       addBookmark(state.recipe);
    } catch (err) {
-      console.error(err);
       throw err;
    }
 };
