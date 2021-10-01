@@ -18,6 +18,10 @@ import {
 
 //////////////////////////////////////////////////////////////////////
 //^ RECIPE CONTROLLER
+/**
+ * Controler - Load recipe from hash or render error
+ * @returns {Promise} Fullfiled (recipe) or Rejected (error)
+ */
 const controlRecipe = async () => {
    try {
       // get id from url
@@ -55,6 +59,10 @@ const controlRecipe = async () => {
    }
 };
 
+/**
+ * Controler - responsible for servings
+ * @param {number} servings
+ */
 const controlServings = (servings) => {
    model.updateServings(servings);
    recipeView.update(model.state.recipe);
@@ -63,6 +71,10 @@ const controlServings = (servings) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ SEARCH CONTROLLER
+/**
+ * Controler - load search results or render error
+ * @returns {Promise} Fullfiled (search results) or Rejected (error)
+ */
 const controlSearchResults = async () => {
    try {
       // render spinner
@@ -85,6 +97,10 @@ const controlSearchResults = async () => {
    }
 };
 
+/**
+ * Controler - load search results on given page
+ * @param {number} page Number of page with search results to load
+ */
 const controlPagination = (page) => {
    // render new page results
    resultsView.render(model.loadPageSearchResults(page));
@@ -96,6 +112,9 @@ const controlPagination = (page) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ BOOKMARKS CONTROLLER
+/**
+ * Controler - resposible for add/remove bookmark
+ */
 const controlBookmark = () => {
    if (!model.state.recipe.bookmarked) {
       model.addBookmark(model.state.recipe);
@@ -113,6 +132,9 @@ const controlBookmark = () => {
    bookmarksView.updateNotification(model.state.bookmarks.length);
 };
 
+/**
+ * Controler - resposible for bookmarks
+ */
 const controlBookmarks = () => {
    bookmarksView.resize();
    bookmarksView.render(model.state.bookmarks);
@@ -122,29 +144,45 @@ const controlBookmarks = () => {
 
 //////////////////////////////////////////////////////////////////////
 //^ ING LIST CONTROLLER
+/**
+ * Controler - add ingredients into ingredients list
+ */
 const controlAddIngsToList = () => {
    model.addIngsToList();
    ingListView.render(model.state.list);
    alertView.toggle(ALERT_STATUS.ingList.add);
 };
 
+/**
+ * Controler - remove ingredient from ingredients list
+ * @param {number} i Number of ingredient on list in state
+ */
 const controlRemoveIngFromList = (i) => {
    model.removeIngFromList(i);
    ingListView.update(model.state.list);
    alertView.toggle(ALERT_STATUS.ingList.remove);
 };
 
+/**
+ * Controler - remove all ingredients from ingredients list
+ */
 const controlRemoveAllIngsFromList = () => {
    model.removeAllIngsFromList();
    ingListView.render(model.state.list);
    alertView.toggle(ALERT_STATUS.ingList.removeAll);
 };
 
+/**
+ * Controler - resposible for ingredients list
+ */
 const controlList = () => {
    ingListView.resize();
    ingListView.render(model.state.list);
 };
 
+/**
+ * Controler - responsible for clipboard
+ */
 const controlClipboard = async () => {
    try {
       await model.clipboardIngList();
@@ -158,11 +196,18 @@ const controlClipboard = async () => {
 
 //////////////////////////////////////////////////////////////////////
 //^ CALENDAR CONTROLLER
+/**
+ * Controler - resposible for calendar
+ */
 const controlCalendar = () => {
    calendarView.resize();
    calendarView.render(model.state.calendar);
 };
 
+/**
+ * Controler - update given day in calendar
+ * @param {number} day Number of day to be updated in state
+ */
 const controlCalendarDay = (day) => {
    model.updateCalendar(day);
    calendarView.render(model.state.calendar);
@@ -172,20 +217,33 @@ const controlCalendarDay = (day) => {
 
 //////////////////////////////////////////////////////////////////////
 //^ ADD RECIPE CONTROLLER
+/**
+ * Controler - add new ingredient field in add recipe window
+ */
 const controlAddIng = () => {
    model.state.addRecipe.numIngredients++;
    addRecipeView.appendIngMarkup(model.state.addRecipe.numIngredients);
 };
 
+/**
+ * Controler - remove ingredient field in add recipe window
+ */
 const controlRemoveIng = () => {
    model.state.addRecipe.numIngredients--;
    addRecipeView.updateIng();
 };
 
+/**
+ * Controler - set number of ingredients in add recipe window to default(1)
+ */
 const controlClearInputs = () => {
    model.state.addRecipe.numIngredients = 1;
 };
 
+/**
+ * Controler - resposible for upload new recipe into API
+ * @param {Object} newRecipe Recipe Object fetched to API
+ */
 const controlAddRecipe = async (newRecipe) => {
    try {
       // render spinner

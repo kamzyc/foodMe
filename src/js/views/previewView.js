@@ -5,6 +5,10 @@ import View from "../view.js";
 class PreviewView extends View {
    _container = null;
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       const id = window.location.hash.slice(1);
 

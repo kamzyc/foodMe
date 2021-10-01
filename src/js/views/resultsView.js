@@ -8,6 +8,10 @@ class ResultsView extends View {
 
    _error = "No recipies found! Please try another one.";
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       return this._data
          .map((result) => previewView.render(result, true))

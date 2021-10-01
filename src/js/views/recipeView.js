@@ -8,12 +8,20 @@ class RecipieView extends View {
 
    _error = "We could not find that recipe. Please try another one ;)";
 
+   /**
+    * Responsible for load recipe in the DOM
+    * @param {Function} handler Function to be called when load and hash change events happens
+    */
    addHandlerRender(handler) {
       ["load", "hashchange"].forEach((event) =>
          window.addEventListener(event, handler)
       );
    }
 
+   /**
+    * Responsible for servings change feature
+    * @param {Function} handler Function to be called when click event happens
+    */
    addHandlerServings(handler) {
       this._container.addEventListener("click", (e) => {
          const btn = e.target.closest(".btn-update");
@@ -25,6 +33,10 @@ class RecipieView extends View {
       });
    }
 
+   /**
+    * Responsible for bookmarks feature
+    * @param {Function} handler Function to be called when click event happens
+    */
    addHandlerBookmarks(handler) {
       this._container.addEventListener("click", (e) => {
          const btn = e.target.closest(".btn-bookmark");
@@ -34,6 +46,10 @@ class RecipieView extends View {
       });
    }
 
+   /**
+    * Responsible for ingredients list feature
+    * @param {Function} handler Function to be called when click event happens
+    */
    addHandlerIngList(handler) {
       this._container.addEventListener("click", (e) => {
          const btn = e.target.closest(".ingredients__add-ing");
@@ -43,6 +59,10 @@ class RecipieView extends View {
       });
    }
 
+   /**
+    * Create HTML markup from each section
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       return [
          this._createTitleMarkup(),
@@ -52,6 +72,10 @@ class RecipieView extends View {
       ].join("");
    }
 
+   /**
+    * Create HTML markup for Title section
+    * @returns {string} HTML markup
+    */
    _createTitleMarkup() {
       return `
       <figure class="title">
@@ -61,6 +85,10 @@ class RecipieView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup for Details section
+    * @returns {string} HTML markup
+    */
    _createDetailsMarkup() {
       return `
       <section class="details">
@@ -131,6 +159,11 @@ class RecipieView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup for one ingredient
+    * @param {Object[]} ingredient Object of ingredient {quantity, unit, description}
+    * @returns {string} HTML markup of ingredient
+    */
    _createIngredientMarkup(ingredient) {
       const quantityMarkup = ingredient.quantity
          ? `<div class="ingredients__item-quantity">${new Fraction(
@@ -151,6 +184,10 @@ class RecipieView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup for Ingredients section
+    * @returns {string} HTML markup
+    */
    _createIngredientsMarkup() {
       return `
       <section class="ingredients">
@@ -170,6 +207,10 @@ class RecipieView extends View {
       `;
    }
 
+   /**
+    * Create HTML markup for Link section
+    * @returns {string} HTML markup
+    */
    _createLinkMarkup() {
       return `
       <section class="source">

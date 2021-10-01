@@ -5,6 +5,10 @@ import View from "../view.js";
 class PaginationView extends View {
    _container = document.querySelector(".pag");
 
+   /**
+    * Responsible for pagination feature
+    * @param {Function} handler Function to be called when click event happens
+    */
    addHandlerClick(handler) {
       this._container.addEventListener("click", (e) => {
          const btn = e.target.closest(".pag__btn");
@@ -16,6 +20,10 @@ class PaginationView extends View {
       });
    }
 
+   /**
+    * Create HTML markup
+    * @returns {string} HTML markup
+    */
    _createMarkup() {
       const numPages = Math.ceil(
          this._data.results.length / this._data.recipiesPerSide
@@ -67,6 +75,10 @@ class PaginationView extends View {
       return "";
    }
 
+   /**
+    * Create HTML markup for current page
+    * @returns {string} HTML markup
+    */
    _createCurrPageButtonMarkup() {
       return `
       <button data-goto="${this._data.page}" class="pag__btn btn btn--active">
@@ -74,6 +86,10 @@ class PaginationView extends View {
       </button>`;
    }
 
+   /**
+    * Create HTML markup for next page button
+    * @returns {string} HTML markup
+    */
    _createNextPageButtonMarkup() {
       return `
       <button data-goto="${this._data.page + 1}" class="pag__btn btn">
@@ -84,6 +100,10 @@ class PaginationView extends View {
       </button>`;
    }
 
+   /**
+    * Create HTML markup for previous page button
+    * @returns {string} HTML markup
+    */
    _createPrevPageButtonMarkup() {
       return `
       <button data-goto="${this._data.page - 1}" class="pag__btn btn">
@@ -94,6 +114,10 @@ class PaginationView extends View {
       </button>`;
    }
 
+   /**
+    * Create HTML markup for first page button
+    * @returns {string} HTML markup
+    */
    _createFirstPageButtonMarkup() {
       return `
       <button data-goto="${1}" class="pag__btn btn">
@@ -104,6 +128,11 @@ class PaginationView extends View {
       </button>`;
    }
 
+   /**
+    * Create HTML markup for last page button
+    * @param {number} numPages Number of last page of search results in state
+    * @returns {string} HTML markup
+    */
    _createLastPageButtonMarkup(numPages) {
       return `
       <button data-goto="${numPages}" class="pag__btn btn">
