@@ -3,6 +3,12 @@
 export default class View {
    _data;
 
+   /**
+    * Render the recieved object to the DOM
+    * @param {Object | Object[]} data The data to be rendered (e.g. recipe, array of bookmarks)
+    * @param {boolean} [onlyMarkup = false] onlyMarkup If true, return HTML markup, instead of render in the DOM
+    * @returns {undefined | string} HTML markup is returned if onlyMarkup = true
+    */
    render(data, onlyMarkup = false) {
       if (!data || (Array.isArray(data) && data.length === 0))
          return this.renderError();
@@ -17,6 +23,10 @@ export default class View {
       this._display(markup);
    }
 
+   /**
+    * Update current HTML markup rendered, with new data passed
+    * @param {Object | Object[]} data The new data to be rendered (e.g. recipe, array of bookmarks)
+    */
    update(data) {
       this._data = data;
       const newMarkup = this._createMarkup();
@@ -47,7 +57,7 @@ export default class View {
    }
 
    /**
-    * Render spinner animation inside container
+    * Render spinner animation to the DOM
     */
    renderSpinner() {
       const markup = `
@@ -69,7 +79,7 @@ export default class View {
    }
 
    /**
-    * Display HTML markup inside container
+    * Insert HTML markup inside container
     * @param {string} markup
     */
    _display(markup) {
@@ -78,7 +88,7 @@ export default class View {
 
    /**
     * Display error messege inside container
-    * @param {string | null} message - text of error message
+    * @param {string | null} message Text of error message
     */
    renderError(message = this._error) {
       const markup = `
