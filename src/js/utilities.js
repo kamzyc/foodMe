@@ -1,9 +1,9 @@
 "use strict";
 
 /**
- * Format string into camelCase
- * @param {string} name
- * @returns {string} name in camelCase
+ * Format string into camelCase notation
+ * @param {string} name Name to be formatted
+ * @returns {string} Name in camelCase
  */
 const formatName = (name) => {
    return name
@@ -15,9 +15,9 @@ const formatName = (name) => {
 };
 
 /**
- * Create {} with recipe data in camelCase notation
- * @param {object} recipe
- * @returns {object} - formatted object
+ * Create Object with recipe data in camelCase notation
+ * @param {Object} recipe Recipe Object
+ * @returns {Object} Formatted object
  */
 export const createRecipeObject = (recipe) => {
    const formattedRecipe = {};
@@ -29,6 +29,11 @@ export const createRecipeObject = (recipe) => {
    return formattedRecipe;
 };
 
+/**
+ * Set async timeout function, which reject after set seconds
+ * @param {number} s Number of seconds
+ * @returns {Promise} Rejected Promise with throwed error
+ */
 export const timeout = function (s) {
    return new Promise(function (_, reject) {
       setTimeout(function () {
@@ -38,7 +43,7 @@ export const timeout = function (s) {
 };
 
 /**
- * Apply max-height property on element, equal to height of .recipe container
+ * Apply max-height property on element, equal to height of current recipe container
  * @param {DOM element} element
  */
 export const setMaxHeight = (element) => {
@@ -52,6 +57,11 @@ export const setMaxHeight = (element) => {
    }`;
 };
 
+/**
+ * Check if passed Object is empty
+ * @param {Object} object Object which will be checked if is empty
+ * @returns {boolean} Return true if passed Object is empty, false if it is not empty
+ */
 export const isEmptyObject = (object) => {
    return (
       object &&
