@@ -63,8 +63,8 @@ $bp-xxs: 28.125em;
    //? EFFECTS
    // shadows
    --bs-small: 0 0.2rem 0.2rem hsl(30 13% 20% / 0.2);
-   --bs-medium: 0 0.4rem 0.4rem hsl(30 13% 20% / 0.3);
-   --bs-big: 0 2rem 6rem 0.5rem hsl(100 12% 8%/ 0.3);
+   --bs-medium: 0 0.5rem 0.6rem hsl(30 13% 20% / 0.3);
+   --bs-big: 0rem 0rem 1rem 1.6rem hsl(100 12% 8% / 0.2);
 
    --rounded-corners: 0.7rem;
    --border-line: 2px solid var(--clr-primary-400);
@@ -106,5 +106,12 @@ $bp-xxs: 28.125em;
    align-items: center;
 }
 
-@mixin borderLine {
+@mixin borderLine($borderSide) {
+   border-#{$borderSide}: var(--border-line);
+
+   @if $borderSide == top {
+      box-shadow: 0 -0.6rem 1rem hsl(30 13% 20% / 0.3);
+   } @else {
+      box-shadow: 0 0.6rem 1rem hsl(30 13% 20% / 0.3);
+   }
 }

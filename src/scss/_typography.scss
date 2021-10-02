@@ -71,7 +71,7 @@ a:visited {
    &:hover,
    &--active {
       background-color: var(--clr-dark-100);
-      box-shadow: var(--bs-small);
+      box-shadow: var(--bs-medium);
       color: var(--clr-primary-200);
    }
 
@@ -81,6 +81,10 @@ a:visited {
 
    &:active {
       transform: translateY(0);
+   }
+
+   &--active {
+      transform: translateY(-0.2em);
    }
 
    &--active &__icon,
@@ -100,5 +104,10 @@ a:visited {
          width: 1.4rem;
          height: 1.4rem;
       }
+   }
+
+   &--small:hover,
+   &--very-small:hover {
+      box-shadow: var(--bs-small);
    }
 }

@@ -1,8 +1,6 @@
 .title {
    position: relative;
    height: 40rem;
-   border-bottom: var(--border-line);
-   box-shadow: var(--bs-small);
 
    @include responsive($bp-s) {
       height: 35rem;
@@ -71,6 +69,10 @@
    justify-content: space-around;
    padding: var(--main-padding);
    background-color: var(--clr-light-200);
+   z-index: 2;
+
+   @include borderLine(bottom);
+
    @include responsive($bp-s) {
       justify-content: space-between;
    }
@@ -133,6 +135,10 @@
    flex: 1;
    padding: var(--main-padding);
    background-color: var(--clr-light-200);
+   z-index: 2;
+   border-top: var(--border-line);
+
+   @include borderLine(top);
 
    &__title {
       text-align: center;
