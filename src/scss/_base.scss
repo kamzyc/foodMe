@@ -35,14 +35,11 @@ body {
    scroll-behavior: smooth;
    text-rendering: optimizeSpeed;
    overflow-x: hidden;
-
    min-height: 100vh;
    padding: 3% 0;
-
    color: var(--clr-dark-200);
    font-family: var(--ff-primary);
    line-height: 1.6;
-
    background: linear-gradient(
       120deg,
       var(--clr-dark-200) 0%,
@@ -106,16 +103,13 @@ button {
 
 .container {
    position: relative;
-
    display: grid;
    grid-template-columns: 1fr 2fr;
    grid-template-rows: var(--header-height) 1fr;
-
    width: clamp(115rem, 80%, 140rem);
    min-height: 80vh;
    margin: 0 auto;
    overflow: hidden;
-
    background: var(--clr-light-100);
    box-shadow: var(--bs-big);
    border-radius: var(--rounded-corners);
@@ -124,7 +118,6 @@ button {
       margin: 0;
       width: 100vw;
       min-height: 100vh;
-
       border-radius: 0;
       box-shadow: none;
    }
@@ -138,19 +131,13 @@ button {
 .header {
    grid-column: 1 / -1;
    grid-row: 1 / 2;
-
    z-index: 4;
-
-   display: flex;
-   flex-direction: row;
+   @include flexCenter;
    justify-content: space-between;
-   align-items: center;
+   flex-direction: row;
    gap: max(15%, 5rem);
-
    height: var(--header-height);
-
    background-color: var(--clr-light-100);
-
    border-bottom: var(--border-line);
    box-shadow: var(--bs-small);
 
@@ -166,14 +153,11 @@ button {
 .search-results {
    grid-column: 1 / 1;
    grid-row: 2 / -1;
-
    display: flex;
    flex-direction: column;
    justify-content: space-between;
-
    position: relative;
    overflow: hidden;
-
    background: repeating-linear-gradient(
       45deg,
       var(--clr-light-100),
@@ -185,7 +169,6 @@ button {
    @include responsive($bp-s) {
       grid-column: 1 / -1;
       grid-row: 2 / 3;
-
       overflow-x: hidden;
       width: 100vw;
       min-height: 14rem;
@@ -197,10 +180,9 @@ button {
 .recipe {
    grid-column: 2 / -1;
    grid-row: 2 / -1;
-
-   display: flex;
+   @include flexCenter;
+   align-items: stretch;
    flex-direction: column;
-   justify-content: center;
 
    @include responsive($bp-s) {
       grid-column: 1 / -1;
@@ -233,13 +215,9 @@ button {
 }
 
 .spinner {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-
+   @include flexCenter;
    margin: 2rem auto;
    padding: var(--main-padding);
-
    text-align: center;
 
    .new-recipe > & {
@@ -248,13 +226,10 @@ button {
 
    & > div {
       display: inline-block;
-
       width: 3rem;
       height: 3rem;
-
       border-radius: var(--rounded-corners);
       background-color: var(--clr-primary-300);
-
       animation: bounce 1s infinite ease-in-out both;
 
       &:nth-child(1) {

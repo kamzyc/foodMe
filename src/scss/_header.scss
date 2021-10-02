@@ -1,10 +1,8 @@
 .logo {
    margin-left: 2rem;
-
    font-size: 3.6rem;
    letter-spacing: -3px;
    font-weight: 700;
-
    user-select: none;
 
    &__text {
@@ -33,16 +31,13 @@
    &__field {
       width: 100%;
       padding: 0.6em 1em;
-
       font-size: 1.4rem;
       color: var(--clr-dark-200);
       font-weight: 400;
-
       outline: none;
       border: 1px solid var(--clr-dark-100);
       border-radius: var(--rounded-corners);
       background-color: inherit;
-
       transition: box-shadow var(--transition-time);
 
       &::placeholder {
@@ -63,17 +58,13 @@
       position: absolute;
       top: 0.8em;
       right: 1em;
-
       width: var(--icon-size);
       height: var(--icon-size);
       padding: 0;
-
       cursor: pointer;
       outline: none;
       border: none;
-
       background-color: var(--clr-light-100);
-
       transform: translateY(0);
 
       &:active {
@@ -84,10 +75,8 @@
    &__icon {
       width: var(--icon-size);
       height: var(--icon-size);
-
       fill: var(--clr-light-300);
       background-color: inherit;
-
       transition: fill 0.2s;
    }
 
@@ -99,27 +88,19 @@
 
 .navbar {
    position: relative;
-
-   display: flex;
+   @include flexCenter;
    flex-direction: row;
-   justify-content: center;
-   align-items: center;
    flex-shrink: 0;
-
    height: 100%;
 
    &__btn {
       position: relative;
-
       height: 100%;
       padding: 0 2.4em;
-
       outline: none;
       border: none;
       cursor: pointer;
-
       background-color: var(--clr-light-100);
-
       transition: background-color var(--transition-time);
    }
 
@@ -131,11 +112,8 @@
    &__icon {
       width: var(--icon-size);
       height: var(--icon-size);
-
       fill: var(--clr-dark-100);
-
       transform: translateY(0);
-
       transition: fill var(--transition-time), transform var(--transition-time);
    }
 
@@ -144,16 +122,11 @@
       top: 0;
       left: 0;
       right: 0;
-
       padding: 0.1em 0;
-
       background-color: var(--clr-primary-400);
       text-transform: uppercase;
-
       transform: translateY(-100%);
-
       user-select: none;
-
       transition: transform var(--transition-time);
    }
 
@@ -181,18 +154,14 @@
    right: 0;
    overflow-y: auto;
    z-index: 1;
-
    width: 40rem;
-
    cursor: default;
    visibility: hidden;
    opacity: 0;
-
    background-color: var(--clr-light-100);
    border-bottom: var(--border-line);
    border-left: var(--border-line);
    box-shadow: var(--bs-medium);
-
    transition: visibility var(--transition-time), opacity var(--transition-time);
 
    &__list {
@@ -239,9 +208,8 @@
    }
 
    &__btns {
-      display: flex;
-      align-items: center;
-      gap: 1.4rem;
+      @include flexCenter;
+      gap: 2rem;
    }
 
    &__clipboard-btn,
@@ -274,12 +242,8 @@
 
    &__day {
       position: relative;
-
-      display: flex;
-      align-items: center;
-
+      @include flexCenter;
       min-height: 8rem;
-
       background-color: var(--clr-light-100);
 
       & > .preview {
@@ -293,7 +257,6 @@
 
    &__day-name {
       padding-left: 1rem;
-
       color: var(--clr-light-300);
       font-size: 3rem;
       font-weight: 800;

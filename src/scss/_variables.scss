@@ -83,7 +83,12 @@ $bp-xxs: 28.125em;
    }
 
    @include responsive($bp-xs) {
-      --inline-padding: 6rem;
+      --inline-padding: 5rem;
+   }
+
+   @include responsive($bp-xxs) {
+      --inline-padding: 4rem;
+      --block-padding: 4rem;
    }
 
    --main-padding: var(--block-padding) var(--inline-padding);
@@ -93,4 +98,10 @@ $bp-xxs: 28.125em;
    text-decoration: underline;
    text-decoration-color: var(--clr-primary-400);
    text-decoration-thickness: 0.4rem;
+}
+
+@mixin flexCenter {
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }

@@ -3,31 +3,23 @@
    top: 5%;
    right: 0;
    z-index: 100;
-
-   display: flex;
-   align-content: center;
+   @include flexCenter;
    gap: 1.4rem;
-
    padding: 0.4em 1em;
-
    background-color: var(--clr-light-100);
    border-left: var(--rounded-corners) solid var(--clr-primary-300);
    border-radius: var(--rounded-corners) 0 0 var(--rounded-corners);
    box-shadow: var(--bs-small);
    user-select: none;
-
    transform: translateX(100%);
-
    transition: transform 0.2s;
 
    @include responsive($bp-s) {
       top: 0;
       right: 10%;
-
       border-left: none;
       border-bottom: var(--rounded-corners) solid var(--clr-primary-300);
       border-radius: 0 0 var(--rounded-corners) var(--rounded-corners);
-
       transform: translateX(0) translateY(-120%);
    }
 

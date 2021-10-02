@@ -1,8 +1,6 @@
 .title {
    position: relative;
-
    height: 40rem;
-
    border-bottom: var(--border-line);
    box-shadow: var(--bs-small);
 
@@ -12,13 +10,10 @@
 
    &::after {
       content: "";
-
       position: absolute;
       inset: 0;
       z-index: 2;
-
       display: inline-block;
-
       background-image: linear-gradient(
          to bottom,
          hsl(30 12% 12% / 0.6) 0%,
@@ -31,12 +26,9 @@
       top: 50%;
       left: 50%;
       z-index: 3;
-
       max-width: 25ch;
-
       color: var(--clr-light-100);
       text-align: center;
-
       transform: translate(-50%, -50%);
    }
 
@@ -45,15 +37,10 @@
       z-index: 3;
       bottom: 1.5rem;
       left: 1.5rem;
-
+      @include flexCenter;
       padding: 1rem;
-
       background-color: var(--clr-dark-200);
       border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
    }
 
    &__icon {
@@ -71,7 +58,6 @@
 
    &__img {
       display: block;
-
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -80,40 +66,23 @@
 }
 
 .details {
-   display: flex;
+   @include flexCenter;
    flex-direction: row;
-   justify-content: space-between;
-   align-items: center;
-
+   justify-content: space-around;
    padding: var(--main-padding);
-
    background-color: var(--clr-light-200);
-
-   border-bottom: var(--border-line);
-   box-shadow: var(--bs-small);
-
    @include responsive($bp-s) {
       justify-content: space-between;
    }
 }
 
 .detail {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
+   @include flexCenter;
    gap: 1.6em;
 
    &__icon {
       width: var(--icon-size);
       height: var(--icon-size);
-
-      &--user {
-         fill: var(--clr-light-300);
-      }
-
-      &--user-active {
-         fill: var(--clr-dark-200);
-      }
    }
 
    &__btns {
@@ -124,11 +93,7 @@
 
 .ingredients {
    padding: var(--main-padding);
-
    background-color: var(--clr-light-100);
-
-   border-bottom: var(--border-line);
-   box-shadow: var(--bs-small);
 
    &__title {
       text-align: center;
@@ -142,11 +107,9 @@
    }
 
    &__item {
-      display: flex;
-      align-items: center;
-
+      @include flexCenter;
+      justify-content: stretch;
       gap: 1.2rem;
-
       font-size: 1.6rem;
 
       &-mark {
@@ -161,18 +124,14 @@
 
    &__add-ing {
       gap: 1rem;
-
       margin-top: var(--block-padding);
-
       font-size: 1.4rem;
    }
 }
 
 .source {
    flex: 1;
-
    padding: var(--main-padding);
-
    background-color: var(--clr-light-200);
 
    &__title {
@@ -188,26 +147,19 @@
    &__link:link,
    &__link:visited {
       display: inline-block;
-
       padding: 0.8em 1.6em;
-
       color: var(--clr-light-100);
       font-size: 2rem;
-
       border-radius: 5px;
       background-color: var(--clr-dark-100);
-
       transform: translateY(0rem);
-
       transition: all var(--transition-time);
    }
 
    &__content {
-      display: flex;
-      align-items: center;
+      @include flexCenter;
       justify-content: flex-start;
       gap: 1rem;
-
       transition: gap var(--transition-time) var(--transition-time);
    }
 

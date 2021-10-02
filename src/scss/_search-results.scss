@@ -1,9 +1,8 @@
 .results {
-   display: flex;
+   @include flexCenter;
    flex-direction: column;
-   justify-content: start;
+   align-items: stretch;
    flex: 1;
-
    width: 100%;
 
    @include responsive($bp-s) {
@@ -14,11 +13,8 @@
 }
 
 .pag {
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   @include flexCenter;
    gap: 1em;
-
    padding: var(--main-padding);
 
    @include responsive($bp-s) {
