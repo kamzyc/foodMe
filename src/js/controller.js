@@ -211,14 +211,15 @@ const controlCalendar = () => {
  * @param {number} day Number of day to be updated in state
  */
 const controlCalendarDay = (day) => {
+   if (isEmptyObject(model.state.calendar[day].recipe)) {
+      if (!isEmptyObject(model.state.recipe)) {
+         alertView.toggle(ALERT_STATUS.calendar.add);
+      }
+   } else {
+      alertView.toggle(ALERT_STATUS.calendar.remove);
+   }
    model.updateCalendar(day);
    calendarView.render(model.state.calendar);
-
-   if (isEmptyObject(model.state.calendar[day].recipe)) {
-      alertView.toggle(ALERT_STATUS.calendar.remove);
-   } else {
-      alertView.toggle(ALERT_STATUS.calendar.add);
-   }
 };
 
 //////////////////////////////////////////////////////////////////////
