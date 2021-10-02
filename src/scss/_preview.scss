@@ -112,11 +112,16 @@
          position: absolute;
          top: -1rem;
          left: -2rem;
-         height: 0.5rem;
+         z-index: 3;
+
+         height: 0.2rem;
          width: calc(100% + 2rem);
+
          border-radius: var(--rounded-corners);
          background-color: var(--clr-primary-400);
-         z-index: 3;
+
+         transform-origin: left;
+         animation: activation var(--transition-time) forwards;
       }
    }
 
@@ -126,5 +131,15 @@
       display: block;
       object-fit: cover;
       z-index: 1;
+   }
+
+   @keyframes activation {
+      0% {
+         transform: scale(0);
+      }
+
+      100% {
+         transform: scale(1);
+      }
    }
 }

@@ -19,6 +19,7 @@ class PreviewView extends View {
             }" href="#${this._data.id}">
                <figure class="preview__card">
                   <h3 class="preview__title">${this._data.title}</h3>
+
                   <span class="preview__sub-title">${
                      this._data.publisher
                   }</span>
@@ -32,8 +33,7 @@ class PreviewView extends View {
                   
                   <img src="${this._data.imageUrl}" alt="${
          this._data.title
-      }" class="preview__img" crossOrigin = "anonymous">
-      
+      }" class="preview__img" crossOrigin="anonymous">
                </figure>
             </a>
          </li>`;
