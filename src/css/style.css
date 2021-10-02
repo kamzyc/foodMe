@@ -895,6 +895,15 @@ a:visited {
   font-weight: 300;
   bottom: -2rem;
 }
+.preview__icon {
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  left: 1rem;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  fill: var(--clr-light-300);
+}
 .preview__card:focus::after, .preview__card:hover::after, .preview__link-active .preview__card::after {
   background-size: 200%;
 }

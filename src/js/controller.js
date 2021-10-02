@@ -94,6 +94,8 @@ const controlSearchResults = async () => {
 
       // render pagination
       paginationView.render(model.state.search);
+
+      console.log(model.state.search);
    } catch (err) {
       resultsView.renderError();
    }

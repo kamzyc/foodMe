@@ -72,6 +72,18 @@
       bottom: -2rem;
    }
 
+   &__icon {
+      position: absolute;
+      z-index: 3;
+      top: 1rem;
+      left: 1rem;
+
+      width: var(--icon-size);
+      height: var(--icon-size);
+
+      fill: var(--clr-light-300);
+   }
+
    // hover/focus animations
    &__card:focus,
    &__card:hover,
