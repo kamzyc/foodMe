@@ -214,12 +214,14 @@ const controlCalendarDay = (day) => {
    if (isEmptyObject(model.state.calendar[day].recipe)) {
       if (!isEmptyObject(model.state.recipe)) {
          alertView.toggle(ALERT_STATUS.calendar.add);
+         model.updateCalendar(day);
+         calendarView.render(model.state.calendar);
       }
    } else {
       alertView.toggle(ALERT_STATUS.calendar.remove);
+      model.updateCalendar(day);
+      calendarView.render(model.state.calendar);
    }
-   model.updateCalendar(day);
-   calendarView.render(model.state.calendar);
 };
 
 //////////////////////////////////////////////////////////////////////
