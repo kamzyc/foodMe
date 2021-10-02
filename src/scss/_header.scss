@@ -297,6 +297,17 @@
       color: var(--clr-light-300);
       font-size: 3rem;
       font-weight: 800;
+
+      &--badge {
+         position: absolute;
+         z-index: 3;
+
+         padding-left: 0;
+         top: 0.2rem;
+         right: 1rem;
+
+         color: var(--clr-light-200);
+      }
    }
 
    &__btn {
