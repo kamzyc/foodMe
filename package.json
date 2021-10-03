@@ -1,6 +1,6 @@
 {
    "name": "foodme",
-   "version": "1.0.0",
+   "version": "2.0",
    "description": "Recipe search application",
    "default": "index.html",
    "browserslist": "last 10 versions",
@@ -13,6 +13,9 @@
    },
    "keywords": [
       "food",
+      "recipe",
+      "meal",
+      "ingredients",
       "recipies"
    ],
    "author": "Kamzyc",
