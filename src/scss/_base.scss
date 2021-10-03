@@ -77,7 +77,8 @@ button {
 }
 
 ::-webkit-scrollbar {
-   width: 10px;
+   width: 15px;
+   height: 15px;
 
    &-track {
       background-color: var(--clr-dark-200);
@@ -85,10 +86,19 @@ button {
 
    &-thumb {
       background-color: var(--clr-dark-100);
+      border-radius: var(--rounded-corners);
+      border: 3px solid var(--clr-dark-200);
 
       &:hover {
          background-color: var(--clr-primary-300);
       }
+   }
+}
+
+@supports (scrollbar-color: white white) {
+   * {
+      scrollbar-color: var(--clr-dark-100) var(--clr-dark-200);
+      scrollbar-width: thin;
    }
 }
 
