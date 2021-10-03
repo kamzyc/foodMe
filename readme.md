@@ -102,5 +102,3 @@ Additional packages used in this project:
 Font used (from Google Fonts) - [Glory](https://fonts.google.com/specimen/Glory?query=glory)
 
 Colors
-
-![Colors](https://github.com/kamzyc/foodme/blob/master/src/readme-files/colors.png)
