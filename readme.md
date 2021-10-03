@@ -5,6 +5,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/kamzyc/foodMe?color=success)
 ![GitHub last commit](https://img.shields.io/github/last-commit/kamzyc/foodMe?color=orange)
 ![GitHub issues](https://img.shields.io/github/issues-raw/kamzyc/foodMe?color=red)
+![License](https://img.shields.io/github/license/kamzyc/foodMe?color=success&style=flat-square)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/eba3c020-2bf5-486b-b8b4-f86ae4533001/deploy-status)](https://food-me.netlify.app/)
 
 # Introduction
@@ -27,7 +28,6 @@
 -  [Development](#development)
 -  [Features](#features)
 -  [Styles](#styles)
--  [License](#license)
 -  [Footer](#footer)
 
 <p>&nbsp;</p>
@@ -78,6 +78,8 @@ Additional packages used in this project:
 -  [dotenv](https://www.npmjs.com/package/dotenv) - to hide API key and also API url
 -  [fraction.js](https://www.npmjs.com/package/fraction.js) - for displaying fractions in more pleased way
 
+Site is deployed on netlify, with continouse integration.
+
 <p>&nbsp;</p>
 
 # Features
@@ -102,3 +104,34 @@ Additional packages used in this project:
 Font used (from Google Fonts) - [Glory](https://fonts.google.com/specimen/Glory?query=glory)
 
 Colors
+
+-  Light :
+
+   -  ![#fafafa](https://via.placeholder.com/15/fafafa/000000?text=+) `#fafafa`
+   -  ![#f5f5f5](https://via.placeholder.com/15/f5f5f5/000000?text=+) `#f5f5f5`
+   -  ![#d9d9d9](https://via.placeholder.com/15/d9d9d9/000000?text=+) `#d9d9d9`
+
+-  Dark :
+
+   -  ![#564d43](https://via.placeholder.com/15/564d43/000000?text=+) `#564d43`
+   -  ![#3a332c](https://via.placeholder.com/15/3a332c/000000?text=+) `#3a332c`
+   -  ![#141712](https://via.placeholder.com/15/141712/000000?text=+) `#141712`
+
+-  Primary :
+
+   -  ![#d9f2a6](https://via.placeholder.com/15/d9f2a6/000000?text=+) `#d9f2a6`
+   -  ![#c5eb7a](https://via.placeholder.com/15/c5eb7a/000000?text=+) `#c5eb7a`
+   -  ![#b2e44e](https://via.placeholder.com/15/b2e44e/000000?text=+) `#b2e44e`
+   -  ![#9fde21](https://via.placeholder.com/15/9fde21/000000?text=+) `#9fde21`
+   -  ![#7fb11b](https://via.placeholder.com/15/7fb11b/000000?text=+) `#7fb11b`
+   -  ![#5f8514](https://via.placeholder.com/15/5f8514/000000?text=+) `#5f8514`
+
+<p>&nbsp;</p>
+
+# Footer
+
+[(Back to top)](#table-of-contents)
+
+Thank Your for visiting this repo ;) I hope this is beginning of my road and in the future will be able to work in IT industry.
+
+Moving on to next project...
