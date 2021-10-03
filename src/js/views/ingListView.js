@@ -107,7 +107,7 @@ class IngListView extends View {
     */
    _createClipboardButtonMarkup() {
       return `
-      <button class="btn ing-list__clipboard-btn">
+      <button class="btn ing-list__clipboard-btn" type="button">
          add to clipboard
       </button>
       `;
@@ -119,7 +119,7 @@ class IngListView extends View {
     */
    _createRemoveAllIngredientsButtonMarkup() {
       return `
-      <button class="btn ing-list__remove-all-btn">
+      <button class="btn ing-list__remove-all-btn" type="button">
          remove all
       </button>
    `;
@@ -147,7 +147,7 @@ class IngListView extends View {
             ${unitMarkup}
             <div class="ingredients__item-text">${ingredient.description}</div>
 
-            <button class="ing-list__remove-btn btn btn--very-small">
+            <button class="ing-list__remove-btn btn btn--very-small" type="button">
                <svg class="btn__icon" viewBox="0 0 24 24">
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M19 13H5v-2h14v2z" />

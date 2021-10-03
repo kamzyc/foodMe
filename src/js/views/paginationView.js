@@ -81,7 +81,7 @@ class PaginationView extends View {
     */
    _createCurrPageButtonMarkup() {
       return `
-      <button data-goto="${this._data.page}" class="pag__btn btn btn--active">
+      <button data-goto="${this._data.page}" class="pag__btn btn btn--active" type="button">
          ${this._data.page}
       </button>`;
    }
@@ -92,7 +92,9 @@ class PaginationView extends View {
     */
    _createNextPageButtonMarkup() {
       return `
-      <button data-goto="${this._data.page + 1}" class="pag__btn btn">
+      <button data-goto="${
+         this._data.page + 1
+      }" class="pag__btn btn" type="button">
          <svg class="btn__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
@@ -106,7 +108,9 @@ class PaginationView extends View {
     */
    _createPrevPageButtonMarkup() {
       return `
-      <button data-goto="${this._data.page - 1}" class="pag__btn btn">
+      <button data-goto="${
+         this._data.page - 1
+      }" class="pag__btn btn" type="button">
          <svg class="btn__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0z" fill="none" />
             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
@@ -120,7 +124,7 @@ class PaginationView extends View {
     */
    _createFirstPageButtonMarkup() {
       return `
-      <button data-goto="${1}" class="pag__btn btn">
+      <button data-goto="${1}" class="pag__btn btn" type="button">
          <svg class="btn__icon" viewBox="0 0 24 24">
             <path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6zM6 6h2v12H6z" />
             <path d="M24 24H0V0h24v24z" fill="none" />
@@ -135,7 +139,7 @@ class PaginationView extends View {
     */
    _createLastPageButtonMarkup(numPages) {
       return `
-      <button data-goto="${numPages}" class="pag__btn btn">
+      <button data-goto="${numPages}" class="pag__btn btn" type="button">
          <svg class="btn__icon" viewBox="0 0 24 24">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M5.59 7.41L10.18 12l-4.59 4.59L7 18l6-6-6-6zM16 6h2v12h-2z" />

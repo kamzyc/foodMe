@@ -130,7 +130,7 @@ class RecipieView extends View {
             <div class="detail__btns">
                <button class="btn btn-update" data-update="${
                   this._data.servings - 1
-               }">
+               }" type="button">
                   <svg class="btn__icon" viewBox="0 0 24 24">
                      <path d="M0 0h24v24H0z" fill="none" />
                      <path d="M19 13H5v-2h14v2z" />
@@ -139,7 +139,7 @@ class RecipieView extends View {
 
                <button class="btn btn-update" data-update="${
                   this._data.servings + 1
-               }">
+               }" type="button">
                   <svg class="btn__icon" viewBox="0 0 24 24">
                      <path d="M0 0h24v24H0z" fill="none" />
                      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
@@ -150,7 +150,7 @@ class RecipieView extends View {
 
          <button class="btn btn-bookmark ${
             this._data.bookmarked ? "btn--active" : ""
-         }">
+         }" type="button">
             <svg class="btn__icon" viewBox="0 0 24 24">
                <path d="M19 10.132v-6c0-1.103-.897-2-2-2H7c-1.103 0-2 .897-2 2V22l7-4.666L19 22V10.132z" />
             </svg>
@@ -197,7 +197,7 @@ class RecipieView extends View {
             ${this._data.ingredients.map(this._createIngredientMarkup).join("")}
          </ul>
 
-         <button class="btn ingredients__add-ing">
+         <button class="btn ingredients__add-ing" type="button">
             <svg class="btn__icon" viewBox="0 0 24 24">
                <path d="M0 0h24v24H0z" fill="none" />
                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />

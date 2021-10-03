@@ -58,7 +58,7 @@ class CalendarView extends View {
       return `
       <li class="calendar__day">
          ${this._createDayNameMarkup(day)}
-         <button class="btn btn--small calendar__btn" data-day="${i}">
+         <button class="btn btn--small calendar__btn" data-day="${i}" type="button">
             ${this._createIconMarkup(day.recipe)}
          </button>
          ${this._createPreviewMarkup(day.recipe)}
