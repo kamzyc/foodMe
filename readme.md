@@ -1,4 +1,4 @@
-![Banner](https://github.com/kamzyc/foodme/blob/master/src/readme-file/banner.png)
+![Banner](https://github.com/kamzyc/foodme/blob/master/src/readme-files/banner.png)
 
 # foodMe
 
