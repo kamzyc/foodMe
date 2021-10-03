@@ -25,6 +25,7 @@
 -  [Preview](#preview)
 -  [Installation](#installation)
 -  [Development](#development)
+-  [Features](#features)
 -  [Styles](#styles)
 -  [License](#license)
 -  [Footer](#footer)
@@ -61,7 +62,7 @@ npm install
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+![SASS](https://img.shields.io/badge/SCSS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 ![Netlify](https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7)
@@ -70,7 +71,36 @@ Project is using MVC architecture. Model is working on main state of data publis
 
 Applied async/await concept for fetching data from **forkify API**. Main recipe and also search results are fetched from databes, with mentioned API.
 
+For this project, used CSS preprocessor (SCSS) for styling website.
+
 Additional packages used in this project:
 
--  ![dotenv](https://www.npmjs.com/package/dotenv) - to hide API key and also API url
--  ![fraction.js](https://www.npmjs.com/package/fraction.js)
+-  [dotenv](https://www.npmjs.com/package/dotenv) - to hide API key and also API url
+-  [fraction.js](https://www.npmjs.com/package/fraction.js) - for displaying fractions in more pleased way
+
+<p>&nbsp;</p>
+
+# Features
+
+[(Back to top)](#table-of-contents)
+
+-  Display recipe ingredients and link for full recipe
+-  Search for recipies with big amount of keywords
+-  Manipulate amount of servings with change in ingredients amount
+-  Add favourite recipies to bookmarks
+-  Save ingredients on shopping list
+-  Use calendar feature for your meals plan
+-  Saving all bookmarks, ingredients and calendar in local storage of browser
+-  Create new recipe and send it to database
+
+<p>&nbsp;</p>
+
+# Styles
+
+[(Back to top)](#table-of-contents)
+
+Font used (from Google Fonts) - [Glory](https://fonts.google.com/specimen/Glory?query=glory)
+
+Colors
+
+![Colors](https://github.com/kamzyc/foodme/blob/master/src/readme-files/colors.png)
