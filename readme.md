@@ -1,4 +1,4 @@
-![Banner](/src/readme-files/banner.png)
+![Banner](./src/readme-files/banner.png)
 
 # foodMe
 
