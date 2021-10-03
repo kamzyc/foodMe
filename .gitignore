@@ -1,6 +1,5 @@
 /node_modules
 /src/icons
-/src/readme-files
 /src/snippets.html
 /dist
 /.parcel-cache
