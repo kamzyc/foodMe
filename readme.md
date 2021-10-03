@@ -16,4 +16,4 @@
 
 ## Preview
 
-[!Preview](https://github.com/kamzyc/foodme/blob/master/src/readme-files/preview.png)
+![Preview](https://github.com/kamzyc/foodme/blob/master/src/readme-files/preview.png)
