@@ -5,6 +5,7 @@
    width: 100%;
 
    @include responsive($bp-s) {
+      @include flexCenter;
       flex-direction: row;
       overflow-x: auto;
       overscroll-behavior-x: contain;
