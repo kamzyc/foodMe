@@ -216,7 +216,10 @@ button {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
-  background: repeating-linear-gradient(45deg, var(--clr-light-100), var(--clr-light-100) 20px, var(--clr-light-200) 20px, var(--clr-light-200) 40px);
+  background-color: var(--clr-light-100);
+  background-image: radial-gradient(var(--clr-light-200) 15%, transparent 16%), radial-gradient(var(--clr-light-200), transparent 16%);
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
 }
 @media only screen and (max-width: 56.25em) {
   .search-results {
