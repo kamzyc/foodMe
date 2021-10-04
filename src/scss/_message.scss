@@ -1,15 +1,38 @@
 .message {
+   @include flexCenter;
+   flex-direction: column;
+   height: 100%;
    padding: var(--main-padding);
    text-align: center;
+   position: relative;
 
-   & *:not(:last-child) {
-      margin-bottom: 1.6rem;
+   .recipe > & {
+      background-image: linear-gradient(
+            var(--clr-light-100),
+            var(--clr-light-100)
+         ),
+         url(../imgs/bg.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-blend-mode: hue;
+      border-left: var(--border-line);
+
+      @include responsive($bp-s) {
+         border-left: none;
+      }
    }
 
    &__title {
-      & span {
-         letter-spacing: -3px;
-         @include underline;
+      margin-bottom: 1.6rem;
+   }
+
+   &__logo {
+      letter-spacing: -3px;
+      font-weight: 700;
+
+      & > span {
+         color: var(--clr-primary-400);
       }
    }
 

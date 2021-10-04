@@ -248,7 +248,7 @@ button {
   position: absolute;
   bottom: 0.5em;
   right: 1.2em;
-  opacity: 0.8;
+  z-index: 2;
 }
 .copyright__text {
   font-size: 1.4rem;
@@ -401,17 +401,37 @@ a:visited {
 }
 
 .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
   padding: var(--main-padding);
   text-align: center;
+  position: relative;
 }
-.message *:not(:last-child) {
+.recipe > .message {
+  background-image: linear-gradient(var(--clr-light-100), var(--clr-light-100)), url(../imgs/bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: hue;
+  border-left: var(--border-line);
+}
+@media only screen and (max-width: 56.25em) {
+  .recipe > .message {
+    border-left: none;
+  }
+}
+.message__title {
   margin-bottom: 1.6rem;
 }
-.message__title span {
+.message__logo {
   letter-spacing: -3px;
-  text-decoration: underline;
-  text-decoration-color: var(--clr-primary-400);
-  text-decoration-thickness: 0.4rem;
+  font-weight: 700;
+}
+.message__logo > span {
+  color: var(--clr-primary-400);
 }
 .message__icon {
   width: 6rem;
